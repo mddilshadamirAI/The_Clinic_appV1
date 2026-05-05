@@ -44,7 +44,7 @@ medicine_db = {
     "Azithromycin": "Antibiotic for bacterial infections.",
     "Digene": "Used for acidity and gas.",
     "Acetaminophen":"Pain relief and fever reduction"
- 	"Amoxicillin" :	"Bacterial infections (e.g., strep throat"
+ 	"Amoxicillin":"Bacterial infections (e.g., strep throat)"
  	"Ibuprofen (Advil/Motrin)":	"Inflammation, pain, and fever"
 	"Atorvastatin (Lipitor)":	"High cholesterol"
 	"Metformin" : "Type 2 diabetes"
