@@ -141,7 +141,7 @@ if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
 
 if not st.session_state.logged_in:
-    st.title("🏥 Welcome to Adnan Ai Clinic")
+    st.title("🏥 Welcome to Dilshad Ai Clinic")
     st.info("India's fastest growing digital clinic platform.")
     
     tab1, tab2 = st.tabs(["🔐 Login", "📝 New Registration"])
