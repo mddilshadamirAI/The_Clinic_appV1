@@ -21,13 +21,20 @@ if 'users' not in st.session_state:
 # Massive Indian Doctor Database
 doctors_db = {
     "Dr. Khanna": {"specialty": "Cardiologist", "location": "Delhi", "experience": "15 yrs", "fee": "₹800"},
-    "Dr. Iyer": {"specialty": "Cardiologist", "location": "Mumbai", "experience": "10 yrs", "fee": "₹1000"},
-    "Dr. Reddy": {"specialty": "Dermatologist", "location": "Hyderabad", "experience": "12 yrs", "fee": "₹600"},
-    "Dr. Rao": {"specialty": "General Physician", "location": "Bengaluru", "experience": "8 yrs", "fee": "₹500"},
-    "Dr. Chatterjee": {"specialty": "General Physician", "location": "Kolkata", "experience": "20 yrs", "fee": "₹400"},
-    "Dr. Subramanian": {"specialty": "Dermatologist", "location": "Chennai", "experience": "14 yrs", "fee": "₹700"},
-    "Dr. Deshmukh": {"specialty": "Cardiologist", "location": "Pune", "experience": "9 yrs", "fee": "₹900"},
-    "Dr. Nair": {"specialty": "Pediatrician", "location": "Bengaluru", "experience": "11 yrs", "fee": "₹600"},
+    "Dr. Isteaque": {"specialty": "Cardiologist", "location": "Mumbai", "experience": "10 yrs", "fee": "₹1000"},
+    "Dr. Rehan": {"specialty": "Dermatologist", "location": "Hyderabad", "experience": "12 yrs", "fee": "₹600"},
+    "Dr. Shubhash": {"specialty": "General Physician", "location": "Bengaluru", "experience": "8 yrs", "fee": "₹500"},
+    "Dr. Ankit": {"specialty": "General Physician", "location": "Kolkata", "experience": "20 yrs", "fee": "₹400"},
+    "Dr. Shreya": {"specialty": "Dermatologist", "location": "Chennai", "experience": "14 yrs", "fee": "₹700"},
+    "Dr. Kahkasha": {"specialty": "Cardiologist", "location": "Pune", "experience": "9 yrs", "fee": "₹900"},
+    "Dr. Iqra": {"specialty": "Pediatrician", "location": "Bengaluru", "experience": "7 yrs", "fee": "₹600"},
+    "Dr. Adnan":{"speciality":"Dermatologist","location": "Kolkata", "experience": "2 yrs", "fee": "₹600"},
+    "Dr. Aamir":{"speciality":"General Physician","location": "Kolkata", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Tabish":{"speciality":"Cardiologist","location": "Kolkata", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Zishan": {"specialty": "Pediatrician", "location": "Mumbai", "experience": "7 yrs", "fee": "₹600"},
+    "Dr. Faizan":{"speciality":"Dermatologist","location": "Delhi", "experience": "2 yrs", "fee": "₹600"},
+    "Dr. Farhan":{"speciality":"General Physician","location": "Hyderabad", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Danish":{"speciality":"Cardiologist","location": "Chennai", "experience": "1 yr", "fee": "₹600"},
 }
 
 # Pharmacy Database
@@ -36,6 +43,56 @@ medicine_db = {
     "Cetirizine": "Used for Allergies and Skin Rashes.",
     "Azithromycin": "Antibiotic for bacterial infections.",
     "Digene": "Used for acidity and gas.",
+    "Acetaminophen":"Pain relief and fever reduction"
+ 	"Amoxicillin" :	"Bacterial infections (e.g., strep throat"
+ 	"Ibuprofen (Advil/Motrin)":	"Inflammation, pain, and fever"
+	"Atorvastatin (Lipitor)":	"High cholesterol"
+	"Metformin" : "Type 2 diabetes"
+	"Lisinopril": "High blood pressure"
+	"Albuterol" :"Asthma and bronchospasm"
+	"Levothyroxine" :"Hypothyroidism (underactive thyroid)"
+	"Amlodipine" :"High blood pressure and chest pain"
+	"Gabapentin" :"Nerve pain and seizures"
+	"Omeprazole (Prilosec)" :"Acid reflux and heartburn"
+	"Losartan" :"High blood pressure"
+	"Sertraline (Zoloft)":"Depression and anxiety"
+	"Metoprolol" :"High blood pressure and chest pain"
+	"Azithromycin (Z-Pak)":"Bacterial infections"
+    "Hydrochlorothiazide":"	Fluid retention and high blood pressure"
+	"Warfarin (Coumadin)":"Blood clots"
+	"Furosemide (Lasix)":"Edema (fluid buildup)"
+	"Pantoprazole":"GERD and stomach acid issues"
+	"Escitalopram (Lexapro)":"Anxiety and depression "
+	"Ranitidine (Zantac)":"Heartburn and ulcers"
+	"Prednisone" :"Severe inflammation and allergies"
+	"Rosuvastatin (Crestor)":"High cholesterol"
+	"Tamsulosin (Flomax)":"Enlarged prostate symptoms"
+	"Meloxicam":"Arthritis pain"
+	"Clopidogrel (Plavix)":"Prevents stroke and heart attack"
+	"Montelukast (Singulair)":"	Asthma and seasonal allergies"
+	"Fluoxetine (Prozac)":"Depression and OCD"
+	"Tramadol":"Moderate to severe pain"
+	"Duloxetine (Cymbalta)":"Nerve pain and depression"
+	"Lorazepam (Ativan)":"Anxiety and seizures"
+	"Ciprofloxacin":"Urinary tract and skin infections"
+	"Doxycycline":"Acne and bacterial infections"
+	"Cyclobenzaprine":"Muscle spasms"
+	"Cephalexin (Keflex)":"	Skin and bone infections"
+	"Venlafaxine (Effexor)":"Panic disorder and depression"
+	"Ventolin (Salbutamol)":"Shortness of breath"
+	"Diazepam (Valium)":"Anxiety and muscle spasms"
+	"Fluticasone (Flonase)":"Nasal allergies"
+	"Oxycodone":"Severe pain"
+	"Warfarin":"To prevent blood clotting"
+	"Methylprednisolone":"Allergic reactions"
+	"Aspirin":"Pain and prevention of heart attack"
+	"Loratadine (Claritin)":"Allergies (non-drowsy)"
+	"Cetirizine (Zyrtec)":"Hay fever and hives"
+	"Ranitidine":"Stomach ulcers"
+	"Spironolactone":"Heart failure and high blood pressure"
+	"Allopurinol":"Gout"
+    "Folic Acid":"Anemia and prenatal health"
+	"Insulin Glargine (Lantus)":"Diabetes management"
 }
 
 symptom_to_specialty = {
