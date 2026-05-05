@@ -35,6 +35,22 @@ doctors_db = {
     "Dr. Faizan":{"specialty":"Dermatologist","location": "Delhi", "experience": "2 yrs", "fee": "₹600"},
     "Dr. Farhan":{"specialty":"General Physician","location": "Hyderabad", "experience": "1 yr", "fee": "₹600"},
     "Dr. Danish":{"specialty":"Cardiologist","location": "Chennai", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Nazrana": {"specialty": "Cardiologist", "location": "Bengaluru", "experience": "3 yrs", "fee": "₹800"},
+    "Dr. Nigar": {"specialty": "Cardiologist", "location": "Bengaluru", "experience": "4 yrs", "fee": "₹100"},
+    "Dr. Asif Alam": {"specialty": "Dermatologist", "location": "Pune", "experience": "5 yrs", "fee": "₹200"},
+    "Dr. Shubhash": {"specialty": "General Physician", "location": "Bengaluru", "experience": "8 yrs", "fee": "₹500"},
+    "Dr. Ankit": {"specialty": "General Physician", "location": "Hyderabad", "experience": "13 yrs", "fee": "₹400"},
+    "Dr. Priyanshu": {"specialty": "Dermatologist", "location": "Pune", "experience": "6 yrs", "fee": "₹300"},
+    "Dr. Kalam": {"specialty": "Cardiologist", "location": "Delhi", "experience": "9 yrs", "fee": "₹900"},
+    "Dr. Aalamgeer": {"specialty": "Pediatrician", "location": "Delhi", "experience": "7 yrs", "fee": "₹600"},
+    "Dr. Adarsh":{"specialty":"Dermatologist","location": "Pune", "experience": "12 yrs", "fee": "₹400"},
+    "Dr. Samsher":{"specialty":"General Physician","location": "Chennai", "experience": "11 yr", "fee": "₹1,00,000"},
+    "Dr. Amir Shahzama":{"specialty":"Cardiologist","location": "Delhi", "experience": "5 yr", "fee": "₹600"},
+    "Dr. Zishan": {"specialty": "Pediatrician", "location": "Hyderabad", "experience": "7 yrs", "fee": "₹500"},
+    "Dr. Kalim":{"specialty":"Dermatologist","location": "Pune", "experience": "2 yrs", "fee": "₹600"},
+    "Dr. Alex":{"specialty":"General Physician","location": "Chennai", "experience": "11 yr", "fee": "₹600"},
+    "Dr. Mustaque":{"specialty":"Cardiologist","location": "Pune", "experience": "10 yr", "fee": "₹600"},
+    
 }
 
 # Pharmacy Database
