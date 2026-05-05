@@ -50,7 +50,8 @@ doctors_db = {
     "Dr. Kalim":{"specialty":"Dermatologist","location": "Pune", "experience": "2 yrs", "fee": "₹600"},
     "Dr. Alex":{"specialty":"General Physician","location": "Chennai", "experience": "11 yr", "fee": "₹600"},
     "Dr. Mustaque":{"specialty":"Cardiologist","location": "Pune", "experience": "10 yr", "fee": "₹600"},
-    
+    "Dr. Vikash": {"specialty": "Dermatologist", "location": "Benagaluru", "experience": "5 yrs", "fee": "₹200"},
+    "Dr. Sikandar": {"specialty": "Dermatologist", "location": "Pune", "experience": "5 yrs", "fee": "₹200"},
 }
 
 # Pharmacy Database
