@@ -204,7 +204,7 @@ else:
 
         elif page == "Pharmacy Search":
             st.header("💊 Quick Medicine Info")
-            med = st.selectbox("Search Medicine Name:", list(medicine_db.keys()))
+            med = st.text_input("Search Medicine Name:", list(medicine_db.keys()))
             st.info(medicine_db[med])
 
         elif page == "Emergency":
