@@ -237,9 +237,9 @@ else:
             st.header("🚨 Emergency Services")
             st.error("In case of an emergency, call 102 (Ambulance) or 108 (Emergency).")
             st.write("---")
-            st.subheader("Nearest 24/7 Hospitals (Estimated)")
-            st.write("1. Apollo Hospital - 2.5km away")
-            st.write("2. Fortis Care - 4.1km away")
+            st.subheader("In Case of emergency go to nearest hospital")
+            st.write("1. Go to Google Map and search for nearest hospital near me!!")
+            st.write("2. Consult a local doctor nearby you")
 
     # --- DOCTOR WORKFLOW ---
     elif user.role == "doctor":
