@@ -141,7 +141,7 @@ if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
 
 if not st.session_state.logged_in:
-    st.title("🏥 Welcome to BharatHealth AI")
+    st.title("🏥 Welcome to Dilshad Clinic AI")
     st.info("India's fastest growing digital clinic platform.")
     
     tab1, tab2 = st.tabs(["🔐 Login", "📝 New Registration"])
@@ -162,11 +162,10 @@ if not st.session_state.logged_in:
                 st.warning("User not found.")
 
     with tab2:
-        st.subheader("Create a Founder-level Account")
+        st.subheader("Create an Account")
         new_u = st.text_input("Choose Username")
         new_p = st.text_input("Choose Password", type="password")
         new_f = st.text_input("Full Name")
-        new_m = st.text_input("Mobile Number")
         role = st.selectbox("I am a:", ["patient", "doctor"])
         
         if st.button("Register on Platform"):
@@ -178,7 +177,7 @@ else:
     user = st.session_state.user
     
     # Sidebar Navigation
-    st.sidebar.title(f"Namaste, {user.full_name}")
+    st.sidebar.title(f"Hello, {user.full_name}")
     st.sidebar.write(f"**Role:** {user.role.upper()}")
     
     if user.role == "patient":
