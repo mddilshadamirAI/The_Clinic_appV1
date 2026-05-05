@@ -36,7 +36,7 @@ doctors_db = {
     "Dr. Farhan":{"specialty":"General Physician","location": "Hyderabad", "experience": "1 yr", "fee": "₹600"},
     "Dr. Danish":{"specialty":"Cardiologist","location": "Chennai", "experience": "1 yr", "fee": "₹600"},
     "Dr. Nazrana": {"specialty": "Cardiologist", "location": "Bengaluru", "experience": "3 yrs", "fee": "₹800"},
-    "Dr. Nigar": {"specialty": "Cardiologist", "location": "Bengaluru", "experience": "4 yrs", "fee": "₹100"},
+    "Dr. Nigar": {"specialty": "Cardiologist", "location": "Hyderabad", "experience": "4 yrs", "fee": "₹100"},
     "Dr. Asif Alam": {"specialty": "Dermatologist", "location": "Pune", "experience": "5 yrs", "fee": "₹200"},
     "Dr. Shubhash": {"specialty": "General Physician", "location": "Bengaluru", "experience": "8 yrs", "fee": "₹500"},
     "Dr. Ankit": {"specialty": "General Physician", "location": "Hyderabad", "experience": "13 yrs", "fee": "₹400"},
@@ -52,6 +52,16 @@ doctors_db = {
     "Dr. Mustaque":{"specialty":"Cardiologist","location": "Pune", "experience": "10 yr", "fee": "₹600"},
     "Dr. Vikash": {"specialty": "Dermatologist", "location": "Benagaluru", "experience": "5 yrs", "fee": "₹200"},
     "Dr. Sikandar": {"specialty": "Dermatologist", "location": "Pune", "experience": "5 yrs", "fee": "₹200"},
+    "Dr. Zakir": {"specialty": "Pediatrician", "location": "Chennai", "experience": "7 yrs", "fee": "₹500"},
+    "Dr. Karan": {"specialty": "General Physician", "location": "Pune", "experience": "8 yrs", "fee": "₹500"},
+    "Dr. Nagina": {"specialty": "Pediatrician", "location": "Pune", "experience": "7 yrs", "fee": "₹500"},
+    "Dr. Fatima": {"specialty": "Pediatrician", "location": "Kolkata", "experience": "7 yrs", "fee": "₹500"},  
+    "Dr. Afshana": {"specialty": "Dermatologist", "location": "Bengaluru", "experience": "6 yrs", "fee": "₹300"},
+    "Dr. Prince":{"specialty":"Dermatologist","location": "Mumbai", "experience": "12 yrs", "fee": "₹400"},
+    "Dr. Harry":{"specialty":"General Physician","location": "Mumbai", "experience": "11 yr", "fee": "₹600"},
+    "Dr. Saleem": {"specialty": "Pediatrician", "location": "Mumbai", "experience": "7 yrs", "fee": "₹500"},
+    "Dr. Rajwant":{"specialty":"General Physician","location": "Delhi", "experience": "11 yr", "fee": "₹600"},
+    
 }
 
 # Pharmacy Database
