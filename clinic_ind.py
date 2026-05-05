@@ -28,13 +28,13 @@ doctors_db = {
     "Dr. Shreya": {"specialty": "Dermatologist", "location": "Chennai", "experience": "14 yrs", "fee": "₹700"},
     "Dr. Kahkasha": {"specialty": "Cardiologist", "location": "Pune", "experience": "9 yrs", "fee": "₹900"},
     "Dr. Iqra": {"specialty": "Pediatrician", "location": "Bengaluru", "experience": "7 yrs", "fee": "₹600"},
-    "Dr. Adnan":{"speciality":"Dermatologist","location": "Kolkata", "experience": "2 yrs", "fee": "₹600"},
-    "Dr. Aamir":{"speciality":"General Physician","location": "Kolkata", "experience": "1 yr", "fee": "₹600"},
-    "Dr. Tabish":{"speciality":"Cardiologist","location": "Kolkata", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Adnan":{"specialty":"Dermatologist","location": "Kolkata", "experience": "2 yrs", "fee": "₹600"},
+    "Dr. Aamir":{"specialty":"General Physician","location": "Kolkata", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Tabish":{"specialty":"Cardiologist","location": "Kolkata", "experience": "1 yr", "fee": "₹600"},
     "Dr. Zishan": {"specialty": "Pediatrician", "location": "Mumbai", "experience": "7 yrs", "fee": "₹600"},
-    "Dr. Faizan":{"speciality":"Dermatologist","location": "Delhi", "experience": "2 yrs", "fee": "₹600"},
-    "Dr. Farhan":{"speciality":"General Physician","location": "Hyderabad", "experience": "1 yr", "fee": "₹600"},
-    "Dr. Danish":{"speciality":"Cardiologist","location": "Chennai", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Faizan":{"specialty":"Dermatologist","location": "Delhi", "experience": "2 yrs", "fee": "₹600"},
+    "Dr. Farhan":{"specialty":"General Physician","location": "Hyderabad", "experience": "1 yr", "fee": "₹600"},
+    "Dr. Danish":{"specialty":"Cardiologist","location": "Chennai", "experience": "1 yr", "fee": "₹600"},
 }
 
 # Pharmacy Database
@@ -204,7 +204,7 @@ else:
 
         elif page == "Pharmacy Search":
             st.header("💊 Quick Medicine Info")
-            med = st.text_input("Search Medicine Name:", list(medicine_db.keys()))
+            med = st.selectbox("Search Medicine Name:", list(medicine_db.keys()))
             st.info(medicine_db[med])
 
         elif page == "Emergency":
