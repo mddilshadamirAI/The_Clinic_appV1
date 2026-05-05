@@ -169,7 +169,7 @@ if not st.session_state.logged_in:
         role = st.selectbox("I am a:", ["patient", "doctor"])
         
         if st.button("Register on Platform"):
-            st.session_state.users[new_u] = User(new_u, new_p, role, new_f, new_m)
+            st.session_state.users[new_u] = User(new_u, new_p, role, new_f,)
             st.success("Registration Successful! Please switch to Login tab.")
 
 # --- 4. MAIN DASHBOARD ---
