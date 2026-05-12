@@ -7,6 +7,8 @@ st.set_page_config(
     page_icon="🏥",
     layout="wide"
 )
+st.sidebar.markdown("---")
+st.sidebar.markdown("👨‍💻 **Developed by [Your Name/Handle]**")
 
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
 st.markdown("""
@@ -99,13 +101,60 @@ DISEASE_MAP = {
 }
 
 MEDICINE_DB = {
-    "Paracetamol": "Used for Fever and Pain relief. Typical dosage: 500mg.",
-    "Metformin": "Commonly used to manage Type 2 Diabetes.",
-    "Amlodipine": "Used to treat High Blood Pressure (Hypertension).",
+    "Paracetamol": "Used for Fever and Pain relief. Dosage: 500mg (Consult Doctor)."
     "Cetirizine": "Used for Allergies and Skin Rashes.",
-    "Azithromycin": "Antibiotic used for bacterial infections.",
-    "Omeprazole": "Used for acid reflux and heartburn.",
-    "Atorvastatin": "Used to lower high cholesterol."
+    "Azithromycin": "Antibiotic for bacterial infections.",
+    "Digene": "Used for acidity and gas.",
+    "Acetaminophen": "Pain relief and fever reduction",
+    "Amoxicillin": "Bacterial infections (e.g., strep throat)",
+    "Ibuprofen (Advil/Motrin)": "Inflammation, pain, and fever",
+    "Atorvastatin (Lipitor)": "High cholesterol",
+    "Metformin": "Type 2 diabetes",
+    "Lisinopril": "High blood pressure",
+    "Albuterol": "Asthma and bronchospasm",
+    "Levothyroxine": "Hypothyroidism (underactive thyroid)",
+    "Amlodipine": "High blood pressure and chest pain",
+    "Gabapentin": "Nerve pain and seizures",
+    "Omeprazole (Prilosec)": "Acid reflux and heartburn",
+    "Losartan": "High blood pressure",
+    "Sertraline (Zoloft)": "Depression and anxiety",
+    "Metoprolol": "High blood pressure and chest pain",
+    "Azithromycin (Z-Pak)": "Bacterial infections",
+    "Hydrochlorothiazide": "Fluid retention and high blood pressure",
+    "Warfarin (Coumadin)": "Blood clots",
+    "Furosemide (Lasix)": "Edema (fluid buildup)",
+    "Pantoprazole": "GERD and stomach acid issues",
+    "Escitalopram (Lexapro)": "Anxiety and depression",
+    "Ranitidine (Zantac)": "Heartburn and ulcers",
+    "Prednisone": "Severe inflammation and allergies",
+    "Rosuvastatin (Crestor)": "High cholesterol",
+    "Tamsulosin (Flomax)": "Enlarged prostate symptoms",
+    "Meloxicam": "Arthritis pain",
+    "Clopidogrel (Plavix)": "Prevents stroke and heart attack",
+    "Montelukast (Singulair)": "Asthma and seasonal allergies",
+    "Fluoxetine (Prozac)": "Depression and OCD",
+    "Tramadol": "Moderate to severe pain",
+    "Duloxetine (Cymbalta)": "Nerve pain and depression",
+    "Lorazepam (Ativan)": "Anxiety and seizures",
+    "Ciprofloxacin": "Urinary tract and skin infections",
+    "Doxycycline": "Acne and bacterial infections",
+    "Cyclobenzaprine": "Muscle spasms",
+    "Cephalexin (Keflex)": "Skin and bone infections",
+    "Venlafaxine (Effexor)": "Panic disorder and depression",
+    "Ventolin (Salbutamol)": "Shortness of breath",
+    "Diazepam (Valium)": "Anxiety and muscle spasms",
+    "Fluticasone (Flonase)": "Nasal allergies",
+    "Oxycodone": "Severe pain",
+    "Warfarin": "To prevent blood clotting",
+    "Methylprednisolone": "Allergic reactions",
+    "Aspirin": "Pain and prevention of heart attack",
+    "Loratadine (Claritin)": "Allergies (non-drowsy)",
+    "Cetirizine (Zyrtec)": "Hay fever and hives",
+    "Ranitidine": "Stomach ulcers",
+    "Spironolactone": "Heart failure and high blood pressure",
+    "Allopurinol": "Gout",
+    "Folic Acid": "Anemia and prenatal health",
+    "Insulin Glargine (Lantus)": "Diabetes management"
 }
 
 # --- 4. SIDEBAR NAVIGATION ---
@@ -179,13 +228,25 @@ elif menu == "BMI Calculator":
 
 elif menu == "Health Guidance":
     st.markdown("### 🥗 Lifestyle & Chronic Management")
-    condition = st.selectbox("Choose Condition", ["Diabetes", "High Blood Pressure (BP)", "Obesity"])
+    condition = st.selectbox("Choose Condition", ["Diabetes", "High Blood Pressure (BP)", "Obesity", "Heart Disease", "Depression & Anxiety", "Chronic Fatigue Syndrome"])
     
     guides = {
         "Diabetes": ("🍎 Blood Sugar Control", "Prioritize low-GI foods (oats, legumes). Limit carbs. Daily 20-min cardio."),
         "High Blood Pressure (BP)": ("❤️ Heart Health", "DASH Diet: low salt, high potassium. Stress management (Yoga/Meditation)."),
         "Obesity": ("🏃 Metabolic Boost", "High protein intake. Caloric tracking. Strength training 3x weekly.")
+        "Heart Disease": ("Daily Habit: Consume Heart-Healthy Fats and Fiber (nuts, olive oil, vegetables) and avoid trans-fats. Quit smoking immediately to protect cardiovascular health.")
+        "Depression & Anxiety": ("Daily Habit: Practice Daily Mindfulness or Gratitude Journaling for 5–10 minutes to reduce cortisol levels and boost neurotransmitters that improve mood.")
+        "Chronic Fatigue Syndrome": ("Daily Habit-Follow a Structured Pacing Schedule—budget your energy by dividing tasks into smaller chunks throughout the day, ensuring equal periods of rest and activity.")    
     }
+elif menu == "About the developer":
+    st.markdown("<div class='content-card'>", unsafe_allow_html=True)
+    st.header("About the Developer")
+    st.write("""
+        Hi, I'm Md Dilshad Amir! The developer of Dilshad AI Clinic. I built this platform to 
+        bridge the gap between patients and verified healthcare providers 
+        using python and streamlit. 
+    """)
+    st.markdown("</div>", unsafe_allow_html=True)
     
     title, desc = guides[condition]
     st.markdown(f"""
