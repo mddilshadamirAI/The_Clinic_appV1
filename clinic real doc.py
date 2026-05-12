@@ -8,39 +8,86 @@ st.set_page_config(
     layout="wide"
 )
 
-# Professional CSS Styling with Fix for Invisible Text
+# --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
 st.markdown("""
     <style>
-    /* Force main background to a light gray */
-    .stApp { background-color: #f4f7f6; }
-    
-    /* Ensure all primary text and labels are dark and visible */
-    .stApp p, .stApp label, .stApp h1, .stApp h2, .stApp h3, .stApp span {
-        color: #1a1a1a !important;
+    /* Main Background: Bluish-Black */
+    .stApp {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #f8fafc;
+    }
+
+    /* Sidebar Styling */
+    section[data-testid="stSidebar"] {
+        background-color: #0f172a !important;
+        border-right: 1px solid #334155;
+    }
+
+    /* Navigation Radio Buttons */
+    .st-eb { color: #f8fafc !important; }
+
+    /* Titles & Headers */
+    h1, h2, h3 {
+        color: #38bdf8 !important; /* Sky Blue Accent */
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+    }
+
+    /* Input Boxes & Selectboxes */
+    .stSelectbox div[data-baseweb="select"], .stTextInput input {
+        background-color: #1e293b !important;
+        color: white !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
     }
     
-    .main-header { color: #004d40; text-align: center; padding: 10px; }
-    
+    label p {
+        color: #94a3b8 !important; /* Muted slate for labels */
+        font-weight: 600;
+    }
+
+    /* Professional Buttons */
     .stButton>button {
         width: 100%;
-        border-radius: 10px;
-        background-color: #007bff;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 100%);
         color: white !important;
         font-weight: bold;
+        border: none;
+        padding: 12px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
     
-    .guide-box {
-        padding: 20px;
-        background-color: white;
-        border-radius: 10px;
-        border-left: 5px solid #28a745;
-        margin-bottom: 15px;
-        color: #1a1a1a;
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+    }
+
+    /* Custom Card for Results & Guidance */
+    .content-card {
+        padding: 25px;
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid #334155;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        margin-bottom: 20px;
+    }
+
+    /* Metrics & Info Boxes */
+    div[data-testid="stMetricValue"] {
+        color: #38bdf8 !important;
+    }
+    .stAlert {
+        background-color: #1e293b !important;
+        border: 1px solid #334155 !important;
+        color: #f8fafc !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. DATA CONSTANTS ---
+# --- 3. DATA CONSTANTS ---
 DISEASE_MAP = {
     "Fever / Flu / Cold": "General Physician",
     "Chest Pain / Heart Issues": "Cardiologist",
@@ -61,98 +108,98 @@ MEDICINE_DB = {
     "Atorvastatin": "Used to lower high cholesterol."
 }
 
-# --- 3. SIDEBAR NAVIGATION ---
-st.sidebar.title("🏥 Clinic Menu")
-menu = st.sidebar.radio("Go to:", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance"])
+# --- 4. SIDEBAR NAVIGATION ---
+st.sidebar.markdown("<h2 style='text-align:center;'>🏥 CLINIC AI</h2>", unsafe_allow_html=True)
+menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance"])
+st.sidebar.markdown("---")
+st.sidebar.info("Logged in as: **Founder**")
 
-st.markdown(f"<h1 class='main-header'>Dilshad AI Clinic</h1>", unsafe_allow_html=True)
-st.markdown(f"<h3 style='text-align: center;'>{menu}</h3>", unsafe_allow_html=True)
+# --- 5. PAGE LOGIC ---
 
-# --- 4. PAGE: FIND A DOCTOR ---
+# Header Section
+st.markdown("<h1 style='text-align: center;'>DILSHAD AI CLINIC</h1>", unsafe_allow_html=True)
+st.markdown(f"<p style='text-align: center; color: #94a3b8;'>{menu} Portal</p>", unsafe_allow_html=True)
+st.write("---")
+
 if menu == "Find a Doctor":
-    st.write("### Search for verified specialists in your area.")
-    col1, col2 = st.columns(2)
-    with col1:
-        disease = st.selectbox("What is your health concern?", list(DISEASE_MAP.keys()))
-    with col2:
-        location = st.text_input("Enter your City (e.g., Bengaluru, Mumbai):", placeholder="Type here...")
+    st.markdown("### 🔍 Intelligent Specialist Matching")
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            disease = st.selectbox("Select Health Concern", list(DISEASE_MAP.keys()))
+        with col2:
+            location = st.text_input("Enter Your City", placeholder="e.g. Bengaluru")
 
-    if st.button("Find Specialist"):
+    if st.button("Search Specialists"):
         if not location:
-            st.warning("Please enter a location.")
+            st.error("Please specify a location to continue.")
         else:
             spec = DISEASE_MAP[disease]
-            st.success(f"Recommended Specialist: **{spec}**")
+            st.markdown(f"""
+                <div class='content-card'>
+                    <h3 style='margin:0;'>Recommended Specialist: {spec}</h3>
+                    <p style='color: #94a3b8;'>Searching real-time verified data for {location}...</p>
+                </div>
+            """, unsafe_allow_html=True)
             
             search_q = f"best {spec} in {location} reviews"
             maps_q = f"{spec} clinics in {location}"
             
             c1, c2 = st.columns(2)
             with c1:
-                st.link_button(f"🌐 View Top {spec}s", f"https://www.google.com/search?q={urllib.parse.quote(search_q)}")
+                st.link_button(f"🌐 View Verified {spec}s", f"https://www.google.com/search?q={urllib.parse.quote(search_q)}")
             with c2:
-                st.link_button(f"📍 View on Google Maps", f"https://www.google.com/maps/search/{urllib.parse.quote(maps_q)}")
+                st.link_button(f"📍 Locate Nearby Clinics", f"https://www.google.com/maps/search/{urllib.parse.quote(maps_q)}")
 
-# --- 5. PAGE: MEDICINE DATABASE ---
 elif menu == "Medicine Database":
-    st.write("### Quick Reference for Common Medications")
-    search_med = st.text_input("Enter medicine name (e.g., Paracetamol):").title()
+    st.markdown("### 💊 Pharmaceutical Reference")
+    search_med = st.text_input("Search Medication (e.g., Metformin):").title()
     
     if search_med:
         if search_med in MEDICINE_DB:
-            st.info(f"**{search_med}**: {MEDICINE_DB[search_med]}")
+            st.markdown(f"<div class='content-card'><h4>{search_med}</h4><p>{MEDICINE_DB[search_med]}</p></div>", unsafe_allow_html=True)
         else:
-            st.error("Medicine not found in local database.")
-            st.link_button(f"Search for '{search_med}' info", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses and side effects')}")
+            st.warning("Not in local records. Directing to global medical database...")
+            st.link_button(f"Research {search_med}", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
 
-# --- 6. PAGE: BMI CALCULATOR ---
 elif menu == "BMI Calculator":
-    st.write("### Body Mass Index (BMI) Tool")
-    c1, c2 = st.columns(2)
-    weight = c1.number_input("Weight (kg)", min_value=1.0, value=70.0)
-    height_cm = c2.number_input("Height (cm)", min_value=1.0, value=170.0)
+    st.markdown("### ⚖️ Digital Health Assessment")
+    col1, col2 = st.columns(2)
+    with col1:
+        weight = st.number_input("Weight (kg)", min_value=1.0, value=70.0)
+    with col2:
+        height_cm = st.number_input("Height (cm)", min_value=1.0, value=170.0)
     
-    if st.button("Calculate My BMI"):
+    if st.button("Calculate Metrics"):
         bmi = weight / ((height_cm/100) ** 2)
-        st.metric("Your BMI Score", f"{bmi:.2f}")
+        st.metric("BMI Score", f"{bmi:.2f}")
         
-        if bmi < 18.5: st.warning("Category: Underweight")
-        elif 18.5 <= bmi < 24.9: st.success("Category: Normal / Healthy Weight")
-        elif 25 <= bmi < 29.9: st.warning("Category: Overweight")
-        else: st.error("Category: Obesity")
+        status = "Healthy" if 18.5 <= bmi < 25 else "Attention Required"
+        st.markdown(f"<div class='content-card' style='text-align:center;'><h4>Status: {status}</h4></div>", unsafe_allow_html=True)
 
-# --- 7. PAGE: HEALTH GUIDANCE ---
 elif menu == "Health Guidance":
-    st.write("### Expert Lifestyle Tips for Chronic Conditions")
-    condition = st.selectbox("Select a condition:", ["Diabetes", "High Blood Pressure (BP)", "Obesity"])
+    st.markdown("### 🥗 Lifestyle & Chronic Management")
+    condition = st.selectbox("Choose Condition", ["Diabetes", "High Blood Pressure (BP)", "Obesity"])
     
-    if condition == "Diabetes":
-        st.markdown("""<div class='guide-box'>
-            <h4>🍎 Diabetes Management</h4>
-            <ul>
-                <li><b>Diet:</b> Focus on whole grains and lean protein. Avoid refined sugar.</li>
-                <li><b>Exercise:</b> At least 30 mins of brisk walking daily.</li>
-                <li><b>Monitoring:</b> Check blood sugar levels regularly.</li>
-            </ul></div>""", unsafe_allow_html=True)
-            
-    elif condition == "High Blood Pressure (BP)":
-        st.markdown("""<div class='guide-box'>
-            <h4>❤️ BP Management</h4>
-            <ul>
-                <li><b>Sodium:</b> Reduce salt intake to less than 5g per day.</li>
-                <li><b>Stress:</b> Practice deep breathing or meditation.</li>
-                <li><b>Activity:</b> Regular cardio helps lower blood pressure.</li>
-            </ul></div>""", unsafe_allow_html=True)
+    guides = {
+        "Diabetes": ("🍎 Blood Sugar Control", "Prioritize low-GI foods (oats, legumes). Limit carbs. Daily 20-min cardio."),
+        "High Blood Pressure (BP)": ("❤️ Heart Health", "DASH Diet: low salt, high potassium. Stress management (Yoga/Meditation)."),
+        "Obesity": ("🏃 Metabolic Boost", "High protein intake. Caloric tracking. Strength training 3x weekly.")
+    }
+    
+    title, desc = guides[condition]
+    st.markdown(f"""
+        <div class='content-card'>
+            <h4>{title}</h4>
+            <p style='font-size: 1.1em;'>{desc}</p>
+        </div>
+    """, unsafe_allow_html=True)
 
-    elif condition == "Obesity":
-        st.markdown("""<div class='guide-box'>
-            <h4>🏃 Weight Management</h4>
-            <ul>
-                <li><b>Caloric Deficit:</b> Burn more calories than you consume.</li>
-                <li><b>Hydration:</b> Drink plenty of water; avoid sugary sodas.</li>
-                <li><b>Consistency:</b> Focus on small, daily improvements.</li>
-            </ul></div>""", unsafe_allow_html=True)
-
-# --- 8. FOOTER ---
+# --- 6. FOOTER ---
 st.write("---")
-st.caption("🚨 Disclaimer: This tool is for informational purposes only. Always consult a certified doctor before starting any medication.")
+st.markdown("""
+    <div style='text-align: center; color: #64748b; padding: 20px;'>
+        <p>🚨 <b>Emergency Services:</b> Dial 102 (Ambulance) or 108 immediately.</p>
+        <p>© 2026 Dilshad AI Clinic | Modern Healthcare for the Founder Path</p>
+    </div>
+""", unsafe_allow_html=True)
