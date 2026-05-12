@@ -101,7 +101,7 @@ DISEASE_MAP = {
 }
 
 MEDICINE_DB = {
-    "Paracetamol": "Used for Fever and Pain relief. Dosage: 500mg (Consult Doctor)."
+    "Paracetamol": "Used for Fever and Pain relief. Dosage: 500mg (Consult Doctor).",
     "Cetirizine": "Used for Allergies and Skin Rashes.",
     "Azithromycin": "Antibiotic for bacterial infections.",
     "Digene": "Used for acidity and gas.",
