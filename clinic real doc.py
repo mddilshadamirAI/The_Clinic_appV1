@@ -234,8 +234,8 @@ elif menu == "Health Guidance":
         "Diabetes": ("🍎 Blood Sugar Control", "Prioritize low-GI foods (oats, legumes). Limit carbs. Daily 20-min cardio."),
         "High Blood Pressure (BP)": ("❤️ Heart Health", "DASH Diet: low salt, high potassium. Stress management (Yoga/Meditation)."),
         "Obesity": ("🏃 Metabolic Boost", "High protein intake. Caloric tracking. Strength training 3x weekly.")
-        "Heart Disease": ("Daily Habit: Consume Heart-Healthy Fats and Fiber (nuts, olive oil, vegetables) and avoid trans-fats. Quit smoking immediately to protect cardiovascular health.")
-        "Depression & Anxiety": ("Daily Habit: Practice Daily Mindfulness or Gratitude Journaling for 5–10 minutes to reduce cortisol levels and boost neurotransmitters that improve mood.")
+        "Heart Disease": ("Daily Habit", "Consume Heart-Healthy Fats and Fiber (nuts, olive oil, vegetables) and avoid trans-fats. Quit smoking immediately to protect cardiovascular health.")
+        "Depression & Anxiety": ("Daily Habit", "Practice Daily Mindfulness or Gratitude Journaling for 5–10 minutes to reduce cortisol levels and boost neurotransmitters that improve mood.")
         "Chronic Fatigue Syndrome": ("Daily Habit-Follow a Structured Pacing Schedule—budget your energy by dividing tasks into smaller chunks throughout the day, ensuring equal periods of rest and activity.")    
     }
 elif menu == "About the developer":
