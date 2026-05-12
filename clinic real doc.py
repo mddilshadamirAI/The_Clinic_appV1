@@ -8,24 +8,34 @@ st.set_page_config(
     layout="wide"
 )
 
-# Professional CSS Styling
+# Professional CSS Styling with Fix for Invisible Text
 st.markdown("""
     <style>
+    /* Force main background to a light gray */
     .stApp { background-color: #f4f7f6; }
+    
+    /* Ensure all primary text and labels are dark and visible */
+    .stApp p, .stApp label, .stApp h1, .stApp h2, .stApp h3, .stApp span {
+        color: #1a1a1a !important;
+    }
+    
     .main-header { color: #004d40; text-align: center; padding: 10px; }
+    
     .stButton>button {
         width: 100%;
         border-radius: 10px;
         background-color: #007bff;
-        color: white;
+        color: white !important;
         font-weight: bold;
     }
+    
     .guide-box {
         padding: 20px;
         background-color: white;
         border-radius: 10px;
         border-left: 5px solid #28a745;
         margin-bottom: 15px;
+        color: #1a1a1a;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -55,7 +65,8 @@ MEDICINE_DB = {
 st.sidebar.title("🏥 Clinic Menu")
 menu = st.sidebar.radio("Go to:", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance"])
 
-st.markdown(f"<h1 class='main-header'>Dilshad AI Clinic - {menu}</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 class='main-header'>Dilshad AI Clinic</h1>", unsafe_allow_html=True)
+st.markdown(f"<h3 style='text-align: center;'>{menu}</h3>", unsafe_allow_html=True)
 
 # --- 4. PAGE: FIND A DOCTOR ---
 if menu == "Find a Doctor":
@@ -91,7 +102,7 @@ elif menu == "Medicine Database":
         if search_med in MEDICINE_DB:
             st.info(f"**{search_med}**: {MEDICINE_DB[search_med]}")
         else:
-            st.error("Medicine not found in local database. Checking external records...")
+            st.error("Medicine not found in local database.")
             st.link_button(f"Search for '{search_med}' info", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses and side effects')}")
 
 # --- 6. PAGE: BMI CALCULATOR ---
@@ -119,18 +130,18 @@ elif menu == "Health Guidance":
         st.markdown("""<div class='guide-box'>
             <h4>🍎 Diabetes Management</h4>
             <ul>
-                <li><b>Diet:</b> Focus on whole grains, leafy greens, and lean protein. Avoid refined sugar.</li>
+                <li><b>Diet:</b> Focus on whole grains and lean protein. Avoid refined sugar.</li>
                 <li><b>Exercise:</b> At least 30 mins of brisk walking daily.</li>
                 <li><b>Monitoring:</b> Check blood sugar levels regularly.</li>
             </ul></div>""", unsafe_allow_html=True)
             
     elif condition == "High Blood Pressure (BP)":
         st.markdown("""<div class='guide-box'>
-            <h4>❤️ BP Management (Hypertension)</h4>
+            <h4>❤️ BP Management</h4>
             <ul>
                 <li><b>Sodium:</b> Reduce salt intake to less than 5g per day.</li>
                 <li><b>Stress:</b> Practice deep breathing or meditation.</li>
-                <li><b>Activity:</b> Regular cardio helps lower resting heart rate.</li>
+                <li><b>Activity:</b> Regular cardio helps lower blood pressure.</li>
             </ul></div>""", unsafe_allow_html=True)
 
     elif condition == "Obesity":
@@ -138,10 +149,10 @@ elif menu == "Health Guidance":
             <h4>🏃 Weight Management</h4>
             <ul>
                 <li><b>Caloric Deficit:</b> Burn more calories than you consume.</li>
-                <li><b>Hydration:</b> Drink plenty of water; avoid sugary drinks/sodas.</li>
-                <li><b>Consistency:</b> Focus on sustainable lifestyle changes, not 'crash diets'.</li>
+                <li><b>Hydration:</b> Drink plenty of water; avoid sugary sodas.</li>
+                <li><b>Consistency:</b> Focus on small, daily improvements.</li>
             </ul></div>""", unsafe_allow_html=True)
 
 # --- 8. FOOTER ---
 st.write("---")
-st.caption("🚨 Disclaimer: This tool is for informational purposes. Always consult a certified doctor before starting any medication.")
+st.caption("🚨 Disclaimer: This tool is for informational purposes only. Always consult a certified doctor before starting any medication.")
