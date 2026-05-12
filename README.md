@@ -1,6 +1,3 @@
 ## This is the clinic app which is live on streamlit..
-This was made by me using python 
-This doesn't contains database storage thats why it could not remember the patient login and keep asking for new registration.
-When you register yourself and simply switch the tab to login and login yourself to the system.
+This was made by me using python and streamlit.
 Keep exploring BMI Calculator and emergency section.
-## This webapp contains Clinic app which has no real doctor this was just hypothetical experience to made the real one..
