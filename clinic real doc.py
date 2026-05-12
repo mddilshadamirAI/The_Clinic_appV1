@@ -1,134 +1,147 @@
 import streamlit as st
 import urllib.parse
 
-# --- 1. CONFIGURATION & STYLING ---
+# --- 1. CONFIGURATION & THEME ---
 st.set_page_config(
-    page_title="Dilshad AI Clinic", 
-    page_icon="🏥", 
+    page_title="Dilshad AI Clinic",
+    page_icon="🏥",
     layout="wide"
 )
 
-# Custom CSS for a professional look
+# Professional CSS Styling
 st.markdown("""
     <style>
-    .main {
-        background-color: #f8f9fa;
-    }
+    .stApp { background-color: #f4f7f6; }
+    .main-header { color: #004d40; text-align: center; padding: 10px; }
     .stButton>button {
         width: 100%;
-        border-radius: 8px;
-        height: 3.5em;
+        border-radius: 10px;
         background-color: #007bff;
         color: white;
         font-weight: bold;
-        border: none;
-        transition: 0.3s;
     }
-    .stButton>button:hover {
-        background-color: #0056b3;
-        border: none;
-    }
-    .result-card {
+    .guide-box {
         padding: 20px;
-        border-radius: 10px;
         background-color: white;
-        border-left: 5px solid #007bff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        border-left: 5px solid #28a745;
+        margin-bottom: 15px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. DATA MAPPING (Disease to Specialist) ---
-# This ensures users find the correct type of doctor for their specific issue.
-disease_map = {
+# --- 2. DATA CONSTANTS ---
+DISEASE_MAP = {
     "Fever / Flu / Cold": "General Physician",
     "Chest Pain / Heart Issues": "Cardiologist",
     "Skin Rash / Acne / Hair Fall": "Dermatologist",
     "Diabetes / Thyroid / Hormones": "Endocrinologist",
-    "Joint Pain / Bone Fracture / Arthritis": "Orthopedic Surgeon",
-    "Child Health / Vaccination / Pediatric": "Pediatrician",
-    "Stomach Pain / Digestion / Acidity": "Gastroenterologist",
-    "Eye Vision / Redness / Surgery": "Ophthalmologist",
+    "Joint Pain / Bone Fracture": "Orthopedic Surgeon",
     "Anxiety / Stress / Mental Health": "Psychiatrist",
-    "Dental Pain / Cavity / Braces": "Dentist",
-    "Ear, Nose, or Throat issues": "ENT Specialist"
+    "High Blood Pressure": "Cardiologist"
 }
 
-# --- 3. MAIN INTERFACE ---
-st.title("🏥 Dilshad AI Clinic")
-st.markdown("### Find Verified Medical Specialists Instantly")
-st.write("India's smart directory for connecting patients with the right doctors.")
+MEDICINE_DB = {
+    "Paracetamol": "Used for Fever and Pain relief. Typical dosage: 500mg.",
+    "Metformin": "Commonly used to manage Type 2 Diabetes.",
+    "Amlodipine": "Used to treat High Blood Pressure (Hypertension).",
+    "Cetirizine": "Used for Allergies and Skin Rashes.",
+    "Azithromycin": "Antibiotic used for bacterial infections.",
+    "Omeprazole": "Used for acid reflux and heartburn.",
+    "Atorvastatin": "Used to lower high cholesterol."
+}
 
-st.divider()
+# --- 3. SIDEBAR NAVIGATION ---
+st.sidebar.title("🏥 Clinic Menu")
+menu = st.sidebar.radio("Go to:", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance"])
 
-# Input Section
-with st.container():
+st.markdown(f"<h1 class='main-header'>Dilshad AI Clinic - {menu}</h1>", unsafe_allow_html=True)
+
+# --- 4. PAGE: FIND A DOCTOR ---
+if menu == "Find a Doctor":
+    st.write("### Search for verified specialists in your area.")
     col1, col2 = st.columns(2)
-    
     with col1:
-        disease = st.selectbox(
-            "📋 Select your health concern:",
-            options=list(disease_map.keys()),
-            help="Choose the option that best describes your current symptoms."
-        )
-
+        disease = st.selectbox("What is your health concern?", list(DISEASE_MAP.keys()))
     with col2:
-        # Note: 'location' input will be used to customize the external search results
-        location = st.text_input(
-            "📍 Enter your City or Area:", 
-            placeholder="e.g., Bengaluru, Mumbai, Delhi...",
-            help="Providing a location helps find doctors nearest to you."
-        )
+        location = st.text_input("Enter your City (e.g., Bengaluru, Mumbai):", placeholder="Type here...")
 
-st.write("") # Spacer
-
-# --- 4. SEARCH LOGIC & RESULTS ---
-if st.button("Find Top-Rated Specialists"):
-    if not location.strip():
-        st.error("⚠️ Please enter a location to view results.")
-    else:
-        specialist = disease_map[disease]
-        
-        # Display the recommendation
-        st.markdown(f"""
-            <div class="result-card">
-                <h3 style='margin:0;'>Recommended Specialist: {specialist}</h3>
-                <p style='color: #666;'>Based on your concern: <b>{disease}</b></p>
-            </div>
-        """, unsafe_allow_html=True)
-        
-        st.write("---")
-        st.subheader(f"🌐 Verified {specialist}s in {location}")
-        st.info(f"We have generated direct access to the highest-rated {specialist}s in your area. Click a source below to view schedules and reviews.")
-
-        # Constructing queries
-        # Google Search targets directories like Practo, Lybrate, and Apollo
-        search_query = f"best {specialist} in {location} reviews contact"
-        # Google Maps targets local clinics
-        maps_query = f"{specialist} clinics near {location}"
-        
-        google_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query)}"
-        maps_url = f"https://www.google.com/maps/search/{urllib.parse.quote(maps_query)}"
-
-        # Action Buttons
-        btn_col1, btn_col2 = st.columns(2)
-        
-        with btn_col1:
-            st.link_button(f"🌐 View Top {specialist}s", google_url, use_container_width=True)
-            st.caption("Browse expert profiles, patient reviews, and consultation fees.")
+    if st.button("Find Specialist"):
+        if not location:
+            st.warning("Please enter a location.")
+        else:
+            spec = DISEASE_MAP[disease]
+            st.success(f"Recommended Specialist: **{spec}**")
             
-        with btn_col2:
-            # Styled via custom CSS or default link_button
-            st.link_button(f"📍 View Nearby Clinics", maps_url, use_container_width=True)
-            st.caption("See real-time distance, clinic photos, and opening hours.")
+            search_q = f"best {spec} in {location} reviews"
+            maps_q = f"{spec} clinics in {location}"
+            
+            c1, c2 = st.columns(2)
+            with c1:
+                st.link_button(f"🌐 View Top {spec}s", f"https://www.google.com/search?q={urllib.parse.quote(search_q)}")
+            with c2:
+                st.link_button(f"📍 View on Google Maps", f"https://www.google.com/maps/search/{urllib.parse.quote(maps_q)}")
 
-# --- 5. EMERGENCY FOOTER ---
-st.divider()
-st.warning("**EMERGENCY?** Please call **102** (Ambulance) or **108** (Emergency Services) immediately if you require urgent medical attention.")
+# --- 5. PAGE: MEDICINE DATABASE ---
+elif menu == "Medicine Database":
+    st.write("### Quick Reference for Common Medications")
+    search_med = st.text_input("Enter medicine name (e.g., Paracetamol):").title()
+    
+    if search_med:
+        if search_med in MEDICINE_DB:
+            st.info(f"**{search_med}**: {MEDICINE_DB[search_med]}")
+        else:
+            st.error("Medicine not found in local database. Checking external records...")
+            st.link_button(f"Search for '{search_med}' info", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses and side effects')}")
 
-st.markdown("""
-<div style="text-align: center; margin-top: 50px; color: #888; font-size: 0.8em;">
-    <p>© 2026 Dilshad AI Clinic | Designed for rapid healthcare access</p>
-    <p>Founder Path: Connecting technology with human health.</p>
-</div>
-""", unsafe_allow_html=True)
+# --- 6. PAGE: BMI CALCULATOR ---
+elif menu == "BMI Calculator":
+    st.write("### Body Mass Index (BMI) Tool")
+    c1, c2 = st.columns(2)
+    weight = c1.number_input("Weight (kg)", min_value=1.0, value=70.0)
+    height_cm = c2.number_input("Height (cm)", min_value=1.0, value=170.0)
+    
+    if st.button("Calculate My BMI"):
+        bmi = weight / ((height_cm/100) ** 2)
+        st.metric("Your BMI Score", f"{bmi:.2f}")
+        
+        if bmi < 18.5: st.warning("Category: Underweight")
+        elif 18.5 <= bmi < 24.9: st.success("Category: Normal / Healthy Weight")
+        elif 25 <= bmi < 29.9: st.warning("Category: Overweight")
+        else: st.error("Category: Obesity")
+
+# --- 7. PAGE: HEALTH GUIDANCE ---
+elif menu == "Health Guidance":
+    st.write("### Expert Lifestyle Tips for Chronic Conditions")
+    condition = st.selectbox("Select a condition:", ["Diabetes", "High Blood Pressure (BP)", "Obesity"])
+    
+    if condition == "Diabetes":
+        st.markdown("""<div class='guide-box'>
+            <h4>🍎 Diabetes Management</h4>
+            <ul>
+                <li><b>Diet:</b> Focus on whole grains, leafy greens, and lean protein. Avoid refined sugar.</li>
+                <li><b>Exercise:</b> At least 30 mins of brisk walking daily.</li>
+                <li><b>Monitoring:</b> Check blood sugar levels regularly.</li>
+            </ul></div>""", unsafe_allow_html=True)
+            
+    elif condition == "High Blood Pressure (BP)":
+        st.markdown("""<div class='guide-box'>
+            <h4>❤️ BP Management (Hypertension)</h4>
+            <ul>
+                <li><b>Sodium:</b> Reduce salt intake to less than 5g per day.</li>
+                <li><b>Stress:</b> Practice deep breathing or meditation.</li>
+                <li><b>Activity:</b> Regular cardio helps lower resting heart rate.</li>
+            </ul></div>""", unsafe_allow_html=True)
+
+    elif condition == "Obesity":
+        st.markdown("""<div class='guide-box'>
+            <h4>🏃 Weight Management</h4>
+            <ul>
+                <li><b>Caloric Deficit:</b> Burn more calories than you consume.</li>
+                <li><b>Hydration:</b> Drink plenty of water; avoid sugary drinks/sodas.</li>
+                <li><b>Consistency:</b> Focus on sustainable lifestyle changes, not 'crash diets'.</li>
+            </ul></div>""", unsafe_allow_html=True)
+
+# --- 8. FOOTER ---
+st.write("---")
+st.caption("🚨 Disclaimer: This tool is for informational purposes. Always consult a certified doctor before starting any medication.")
