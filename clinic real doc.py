@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 st.sidebar.markdown("---")
-st.sidebar.markdown("👨‍💻 **Developed by [Your Name/Handle]**")
+st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
 st.markdown("""
@@ -161,7 +161,7 @@ MEDICINE_DB = {
 st.sidebar.markdown("<h2 style='text-align:center;'>🏥 CLINIC AI</h2>", unsafe_allow_html=True)
 menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance"])
 st.sidebar.markdown("---")
-st.sidebar.info("Logged in as: **Founder**")
+st.sidebar.info("Logged in as a user connect to developer via email mddilshadamir@gmail.com and give your valuable feedback")
 
 # --- 5. PAGE LOGIC ---
 
@@ -177,7 +177,7 @@ if menu == "Find a Doctor":
         with col1:
             disease = st.selectbox("Select Health Concern", list(DISEASE_MAP.keys()))
         with col2:
-            location = st.text_input("Enter Your City", placeholder="e.g. Bengaluru")
+            location = st.text_input("Enter Your City", placeholder="e.g. Bengaluru/Makhdumpur")
 
     if st.button("Search Specialists"):
         if not location:
