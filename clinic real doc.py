@@ -3,7 +3,7 @@ import urllib.parse
 
 # --- 1. CONFIGURATION & THEME ---
 st.set_page_config(
-    page_title="AI Clinic",
+    page_title="Dilshad AI Clinic",
     page_icon="🏥",
     layout="wide"
 )
@@ -166,7 +166,7 @@ st.sidebar.info("Logged in as a user connect to developer via email mddilshadami
 # --- 5. PAGE LOGIC ---
 
 # Header Section
-st.markdown("<h1 style='text-align: center;'>DILSHAD AI CLINIC</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>AI CLINIC</h1>", unsafe_allow_html=True)
 st.markdown(f"<p style='text-align: center; color: #94a3b8;'>{menu} Portal</p>", unsafe_allow_html=True)
 st.write("---")
 
