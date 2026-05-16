@@ -3,7 +3,7 @@ import urllib.parse
 
 # --- 1. CONFIGURATION & THEME ---
 st.set_page_config(
-    page_title="Dilshad AI Clinic",
+    page_title="AI Clinic",
     page_icon="🏥",
     layout="wide"
 )
