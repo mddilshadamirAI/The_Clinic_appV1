@@ -503,7 +503,7 @@ elif menu == "Symptom Checker":
         st.markdown(f"""
         <div class='content-card'>
             <h4>Advice for {symptom}</h4>
-            <p><b>🤒 Category:</b> {data['category']}</p>
+            <p><b>🤒 Avoid:</b> {data['avoid']}</p>
             <p><b>🏡 Remedy:</b> {data['remedy']}</p>
             <p><b>💊 Medicine:</b> {data['medicine']}</p>
             <div style='padding: 10px; border-left: 5px solid {color}; background: rgba(239, 68, 68, 0.1);'>
