@@ -11,64 +11,67 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
-<style>
-/* 1. Global Background: Rich Brownish-Sky Blue Gradient */
-.stApp {
-    background: linear-gradient(135deg, #2c1e18 0%, #0c4a6e 100%);
-    color: #f0f9ff;
-}
+# --- 2. CSS STYLING (Wrapped correctly in Python) ---
+st.markdown("""
+    <style>
+    /* 1. Global Background: Rich Brownish-Sky Blue Gradient */
+    .stApp {
+        background: linear-gradient(135deg, #2c1e18 0%, #0c4a6e 100%);
+        color: #f0f9ff;
+    }
 
-/* 2. Sidebar: Deep Earthy Brown */
-section[data-testid="stSidebar"] {
-    background-color: #231915 !important;
-    border-right: 1px solid #4a372e;
-}
+    /* 2. Sidebar: Deep Earthy Brown */
+    section[data-testid="stSidebar"] {
+        background-color: #231915 !important;
+        border-right: 1px solid #4a372e;
+    }
 
-/* 3. Glassmorphism Card Effect: Sky-Blue Tint */
-.content-card {
-    padding: 30px;
-    background: rgba(14, 165, 233, 0.05); /* Sky blue tint */
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(125, 211, 252, 0.15);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-    margin-bottom: 25px;
-}
+    /* 3. Glassmorphism Card Effect: Sky-Blue Tint */
+    .content-card {
+        padding: 30px;
+        background: rgba(14, 165, 233, 0.05);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(125, 211, 252, 0.15);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        margin-bottom: 25px;
+    }
 
-/* 4. Headers: Vibrant Sky Blue */
-h1, h2, h3 {
-    color: #7dd3fc !important; /* Brighter Sky Blue */
-    font-family: 'Inter', sans-serif;
-}
+    /* 4. Headers: Vibrant Sky Blue */
+    h1, h2, h3 {
+        color: #7dd3fc !important;
+        font-family: 'Inter', sans-serif;
+    }
 
-/* 5. Buttons: Soft Sky-Blue Glow */
-.stButton>button {
-    background: rgba(14, 165, 233, 0.1) !important;
-    border: 1px solid #7dd3fc !important;
-    color: #7dd3fc !important;
-    transition: 0.4s ease;
-}
-.stButton>button:hover {
-    background: #0284c7 !important;
-    color: white !important;
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
-}
+    /* 5. Buttons: Soft Sky-Blue Glow */
+    .stButton>button {
+        background: rgba(14, 165, 233, 0.1) !important;
+        border: 1px solid #7dd3fc !important;
+        color: #7dd3fc !important;
+        transition: 0.4s ease;
+    }
+    .stButton>button:hover {
+        background: #0284c7 !important;
+        color: white !important;
+        box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+    }
 
-/* 6. Sidebar Selection Cards: Brown-Blue Contrast */
-div[data-testid="stSidebar"] label {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(125, 211, 252, 0.05);
-}
-div[data-testid="stSidebar"] label:hover {
-    background: rgba(14, 165, 233, 0.15) !important;
-    border: 1px solid #7dd3fc !important;
-}
-div[data-testid="stSidebar"] [data-checked="true"] {
-    background: rgba(14, 165, 233, 0.25) !important;
-    border-left: 4px solid #7dd3fc !important;
-}
-</style>
+    /* 6. Sidebar Selection Cards: Brown-Blue Contrast */
+    div[data-testid="stSidebar"] label {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        border: 1px solid rgba(125, 211, 252, 0.05);
+    }
+    div[data-testid="stSidebar"] label:hover {
+        background: rgba(14, 165, 233, 0.15) !important;
+        border: 1px solid #7dd3fc !important;
+    }
+    div[data-testid="stSidebar"] [data-checked="true"] {
+        background: rgba(14, 165, 233, 0.25) !important;
+        border-left: 4px solid #7dd3fc !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # --- 3. DATA CONSTANTS ---
 DISEASE_MAP = {
