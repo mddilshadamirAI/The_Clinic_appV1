@@ -11,88 +11,64 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
-st.markdown("""
-    <style>
-    /* Global Background: Deep Lush Green to Bluish-Mint */
-    .stApp {
-        background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
-        color: #f1f5f9;
-    }
-
-    /* Premium Glassmorphism Card Effect */
-    .content-card {
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        margin-bottom: 25px;
-        animation: fadeIn 0.8s ease-out;
-    }
-
-    /* Animation */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Headers: Mint Green Accent */
-    h1, h2, h3 {
-        color: #34d399 !important;
-        font-family: 'Inter', sans-serif;
-    }
-
-    /* Buttons: Glowing Glass Effect */
-    .stButton>button {
-        background: rgba(52, 211, 153, 0.1) !important;
-        border: 1px solid #34d399 !important;
-        color: #34d399 !important;
-        transition: 0.4s ease;
-    }
-    .stButton>button:hover {
-        background: #34d399 !important;
-        color: #064e3b !important;
-        box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
-    }
-    /* Sidebar Radio Button Container */
-div[data-testid="stSidebar"] div[role="radiogroup"] {
-    gap: 10px;
+<style>
+/* 1. Global Background: Rich Brownish-Sky Blue Gradient */
+.stApp {
+    background: linear-gradient(135deg, #2c1e18 0%, #0c4a6e 100%);
+    color: #f0f9ff;
 }
 
-/* Make the selection items look like premium cards */
+/* 2. Sidebar: Deep Earthy Brown */
+section[data-testid="stSidebar"] {
+    background-color: #231915 !important;
+    border-right: 1px solid #4a372e;
+}
+
+/* 3. Glassmorphism Card Effect: Sky-Blue Tint */
+.content-card {
+    padding: 30px;
+    background: rgba(14, 165, 233, 0.05); /* Sky blue tint */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(125, 211, 252, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    margin-bottom: 25px;
+}
+
+/* 4. Headers: Vibrant Sky Blue */
+h1, h2, h3 {
+    color: #7dd3fc !important; /* Brighter Sky Blue */
+    font-family: 'Inter', sans-serif;
+}
+
+/* 5. Buttons: Soft Sky-Blue Glow */
+.stButton>button {
+    background: rgba(14, 165, 233, 0.1) !important;
+    border: 1px solid #7dd3fc !important;
+    color: #7dd3fc !important;
+    transition: 0.4s ease;
+}
+.stButton>button:hover {
+    background: #0284c7 !important;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+}
+
+/* 6. Sidebar Selection Cards: Brown-Blue Contrast */
 div[data-testid="stSidebar"] label {
     background: rgba(255, 255, 255, 0.03);
-    padding: 15px 20px !important;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin-bottom: 5px;
+    border: 1px solid rgba(125, 211, 252, 0.05);
 }
-
-/* Hover effect on selection */
 div[data-testid="stSidebar"] label:hover {
-    background: rgba(52, 211, 153, 0.1) !important;
-    border: 1px solid #34d399 !important;
-    transform: translateX(5px);
+    background: rgba(14, 165, 233, 0.15) !important;
+    border: 1px solid #7dd3fc !important;
 }
-
-/* Style the text inside the radio labels */
-div[data-testid="stSidebar"] label p {
-    color: #cbd5e1 !important;
-    font-weight: 500 !important;
-    font-size: 1.05rem !important;
-}
-
-/* Selected state highlight */
 div[data-testid="stSidebar"] [data-checked="true"] {
-    background: rgba(52, 211, 153, 0.2) !important;
-    border-left: 4px solid #34d399 !important;
+    background: rgba(14, 165, 233, 0.25) !important;
+    border-left: 4px solid #7dd3fc !important;
 }
-    </style>
-    """, unsafe_allow_html=True)
+</style>
 
 # --- 3. DATA CONSTANTS ---
 DISEASE_MAP = {
