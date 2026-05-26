@@ -14,61 +14,65 @@ st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 # --- 2. CSS STYLING (Wrapped correctly in Python) ---
 st.markdown("""
     <style>
-    /* 1. Global Background: Rich Brownish-Sky Blue Gradient */
+    /* 1. Global Background: Soft Mint-to-Sky Gradient */
     .stApp {
-        background: linear-gradient(135deg, #2c1e18 0%, #0c4a6e 100%);
-        color: #f0f9ff;
+        background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+        color: #1e293b;
     }
 
-    /* 2. Sidebar: Deep Earthy Brown */
+    /* 2. Sidebar: Light Greenish-Sky Blue */
     section[data-testid="stSidebar"] {
-        background-color: #231915 !important;
-        border-right: 1px solid #4a372e;
+        background-color: #f1f8f7 !important;
+        border-right: 1px solid #cce3de;
     }
 
-    /* 3. Glassmorphism Card Effect: Sky-Blue Tint */
+    /* 3. Glassmorphism Card Effect: Light & Frosted */
     .content-card {
         padding: 30px;
-        background: rgba(14, 165, 233, 0.05);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(125, 211, 252, 0.15);
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
         border-radius: 20px;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         margin-bottom: 25px;
     }
 
-    /* 4. Headers: Vibrant Sky Blue */
+    /* 4. Headers: Professional Teal-Blue */
     h1, h2, h3 {
-        color: #7dd3fc !important;
+        color: #0f766e !important;
         font-family: 'Inter', sans-serif;
     }
 
-    /* 5. Buttons: Soft Sky-Blue Glow */
+    /* 5. Buttons: Soft Teal-Blue Glass */
     .stButton>button {
-        background: rgba(14, 165, 233, 0.1) !important;
-        border: 1px solid #7dd3fc !important;
-        color: #7dd3fc !important;
-        transition: 0.4s ease;
+        background: rgba(15, 118, 110, 0.05) !important;
+        border: 1px solid #0f766e !important;
+        color: #0f766e !important;
+        transition: 0.3s;
     }
     .stButton>button:hover {
-        background: #0284c7 !important;
+        background: #0f766e !important;
         color: white !important;
-        box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
     }
 
-    /* 6. Sidebar Selection Cards: Brown-Blue Contrast */
+    /* 6. Sidebar Navigation: Light Hover Effects */
     div[data-testid="stSidebar"] label {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 12px;
-        border: 1px solid rgba(125, 211, 252, 0.05);
+        background: transparent;
+        border-radius: 10px;
+        transition: 0.3s;
     }
     div[data-testid="stSidebar"] label:hover {
-        background: rgba(14, 165, 233, 0.15) !important;
-        border: 1px solid #7dd3fc !important;
+        background: rgba(15, 118, 110, 0.1) !important;
+        transform: translateX(5px);
     }
     div[data-testid="stSidebar"] [data-checked="true"] {
-        background: rgba(14, 165, 233, 0.25) !important;
-        border-left: 4px solid #7dd3fc !important;
+        background: rgba(15, 118, 110, 0.15) !important;
+        border-left: 4px solid #0f766e !important;
+    }
+    
+    /* Ensure text in Sidebar is readable in Light Mode */
+    div[data-testid="stSidebar"] p {
+        color: #334155 !important;
     }
     </style>
 """, unsafe_allow_html=True)
