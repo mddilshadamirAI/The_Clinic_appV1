@@ -48,11 +48,14 @@ st.markdown("""
         color: #0d9488 !important;
     }
 
-    /* 5. Inputs: Pure white surface */
-    .stSelectbox div[data-baseweb="select"], .stTextInput input {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border: 1px solid #cbd5e1 !important;
+    /* 3. The "Annoying White" Parts: Now Charcoal Black */
+    .content-card, 
+    .stTextInput input, 
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: #1e293b !important; /* Charcoal Black */
+        border: 1px solid #334155 !important;
+        color: #f1f5f9 !important; /* Light text for contrast */
+        border-radius: 12px !important;
     }
 
     /* 6. Buttons: High-contrast Teal */
