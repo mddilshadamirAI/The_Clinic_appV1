@@ -186,7 +186,7 @@ MEDICINE_DB = {
 
 # --- 4. SIDEBAR NAVIGATION ---
 st.sidebar.markdown("<h2 style='text-align:center;'>🏥 CLINICAL TOOL</h2>", unsafe_allow_html=True)
-menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance", "Symptom Tracker"])
+menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance", "Symptom Checker"])
 st.sidebar.markdown("---")
 st.sidebar.info("Logged in as a user connect to developer via email mddilshadamir@gmail.com and give your valuable feedback")
 
