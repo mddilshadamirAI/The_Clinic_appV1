@@ -56,6 +56,41 @@ st.markdown("""
         color: #064e3b !important;
         box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
     }
+    /* Sidebar Radio Button Container */
+div[data-testid="stSidebar"] div[role="radiogroup"] {
+    gap: 10px;
+}
+
+/* Make the selection items look like premium cards */
+div[data-testid="stSidebar"] label {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px 20px !important;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+/* Hover effect on selection */
+div[data-testid="stSidebar"] label:hover {
+    background: rgba(52, 211, 153, 0.1) !important;
+    border: 1px solid #34d399 !important;
+    transform: translateX(5px);
+}
+
+/* Style the text inside the radio labels */
+div[data-testid="stSidebar"] label p {
+    color: #cbd5e1 !important;
+    font-weight: 500 !important;
+    font-size: 1.05rem !important;
+}
+
+/* Selected state highlight */
+div[data-testid="stSidebar"] [data-checked="true"] {
+    background: rgba(52, 211, 153, 0.2) !important;
+    border-left: 4px solid #34d399 !important;
+}
     </style>
     """, unsafe_allow_html=True)
 
@@ -360,7 +395,16 @@ MEDICINE_DB = {
 
 # --- 4. SIDEBAR NAVIGATION ---
 st.sidebar.markdown("<h2 style='text-align:center;'>🏥 CLINICAL TOOL</h2>", unsafe_allow_html=True)
-menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance", "Symptom Checker"])
+menu = st.sidebar.radio(
+    "Navigation", 
+    [
+        "🔍 Find a Doctor", 
+        "💊 Medicine Database", 
+        "⚖️ BMI Calculator", 
+        "🥗 Health Guidance", 
+        "🩺 Symptom Checker"
+    ]
+)
 st.sidebar.markdown("---")
 st.sidebar.info("Logged in as a user connect to developer via email mddilshadamir@gmail.com and give your valuable feedback")
 
@@ -371,7 +415,7 @@ st.markdown("<h1 style='text-align: center;'>CLINICAL TOOL</h1>", unsafe_allow_h
 st.markdown(f"<p style='text-align: center; color: #94a3b8;'>{menu} Portal</p>", unsafe_allow_html=True)
 st.write("---")
 
-if menu == "Find a Doctor":
+if menu == "🔍 Find a Doctor":
     st.markdown("### 🔍 Intelligent Specialist Matching")
     with st.container():
         col1, col2 = st.columns(2)
@@ -401,7 +445,7 @@ if menu == "Find a Doctor":
             with c2:
                 st.link_button(f"📍 Locate Nearby Clinics", f"https://www.google.com/maps/search/{urllib.parse.quote(maps_q)}")
 
-elif menu == "Medicine Database":
+elif menu == "💊 Medicine Database":
     st.markdown("### 💊 Pharmaceutical Reference")
     search_med = st.text_input("Search Medication (e.g., Metformin):").title()
     
@@ -412,7 +456,7 @@ elif menu == "Medicine Database":
             st.warning("Not in local records. Directing to global medical database...")
             st.link_button(f"Research {search_med}", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
 
-elif menu == "BMI Calculator":
+elif menu == "⚖️ BMI Calculator":
     st.markdown("### ⚖️ Digital Health Assessment")
     col1, col2 = st.columns(2)
     with col1:
@@ -427,7 +471,7 @@ elif menu == "BMI Calculator":
         status = "Healthy" if 18.5 <= bmi < 25 else "Attention Required"
         st.markdown(f"<div class='content-card' style='text-align:center;'><h4>Status: {status}</h4></div>", unsafe_allow_html=True)
 
-elif menu == "Health Guidance":
+elif menu == "🥗 Health Guidance":
     st.markdown("### 🥗 Lifestyle & Chronic Management")
     
     # Ensure these options match the dictionary keys exactly
@@ -462,7 +506,7 @@ elif menu == "Health Guidance":
             </div>
         """, unsafe_allow_html=True)
 
-elif menu == "Symptom Checker":
+elif menu == "🩺 Symptom Checker":
     st.markdown("### 🩺 AI Triage & Assessment")
     symptom = st.selectbox("Select your symptom:", list(SYMPTOM_DIAGNOSTICS.keys()))
     
