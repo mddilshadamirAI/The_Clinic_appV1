@@ -100,29 +100,73 @@ DISEASE_MAP = {
     "High Blood Pressure": "Cardiologist"
 }
 SYMPTOM_DIAGNOSTICS = {
+    # --- RESPIRATORY ---
     "Fever": {
-        "remedy": "Maintain strict hydration, prioritize electrolyte-rich fluids, use lukewarm sponging, and ensure adequate ventilation.",
-        "medicine": "Paracetamol (500mg) - monitor core temperature.",
+        "category": "Respiratory",
+        "remedy": "Maintain strict hydration, prioritize electrolyte-rich fluids, and use lukewarm sponging.",
+        "medicine": "Paracetamol (500mg) for fever reduction.",
         "urgency": "Persistent fever > 103°F (39.4°C), severe headache, or stiff neck.",
         "triage": "Yellow"
     },
-    "Headache": {
-        "remedy": "Dark, quiet environment, cold compress, and hydration.",
-        "medicine": "Acetaminophen or Ibuprofen.",
-        "urgency": "Sudden onset of 'thunderclap' pain, slurred speech, or vision loss.",
-        "triage": "Red"
+    "Common Cold": {
+        "category": "Respiratory",
+        "remedy": "Increase fluid intake, use steam inhalation for congestion, and gargle with warm salt water.",
+        "medicine": "Vitamin C supplements or OTC cold/flu tablets.",
+        "urgency": "Symptoms persisting > 10 days, high fever, or difficulty breathing.",
+        "triage": "Green"
     },
     "Cough": {
-        "remedy": "Steam inhalation, honey/ginger warm water, salt water gargle.",
-        "medicine": "Dextromethorphan (dry) or Guaifenesin (chesty).",
-        "urgency": "Coughing blood, wheezing, or difficulty breathing.",
+        "category": "Respiratory",
+        "remedy": "Honey-ginger warm water; avoid cold triggers, dust, and smoke.",
+        "medicine": "Dextromethorphan (dry cough) or Guaifenesin (productive cough).",
+        "urgency": "Coughing up blood, wheezing, or sharp chest pain during inhalation.",
         "triage": "Red"
     },
-    "Acidity/Heartburn": {
-        "remedy": "Avoid spicy foods/caffeine, eat smaller meals, sit upright.",
-        "medicine": "Antacids (Digene) or Omeprazole.",
-        "urgency": "Pain radiating to jaw/arm or unexplained weight loss.",
+
+    # --- DIGESTIVE ---
+    "Acidity / Heartburn": {
+        "category": "Digestive",
+        "remedy": "Avoid spicy/oily foods, limit caffeine, and sit upright for 2 hours after meals.",
+        "medicine": "Antacids (e.g., Digene) or Proton Pump Inhibitors (e.g., Omeprazole).",
+        "urgency": "Pain radiating to the jaw/left arm or difficulty swallowing.",
         "triage": "Yellow"
+    },
+    "Diarrhea": {
+        "category": "Digestive",
+        "remedy": "Follow the BRAT diet (Bananas, Rice, Applesauce, Toast) and maintain hydration with ORS.",
+        "medicine": "Consult a physician before using anti-diarrheal agents.",
+        "urgency": "Presence of blood in stool, severe abdominal cramping, or signs of severe dehydration.",
+        "triage": "Red"
+    },
+    "Constipation": {
+        "category": "Digestive",
+        "remedy": "Increase soluble fiber intake and ensure a minimum intake of 2 liters of water daily.",
+        "medicine": "Psyllium husk (Ispaghula) or stool softeners.",
+        "urgency": "No bowel movement > 7 days or severe, localized abdominal pain.",
+        "triage": "Green"
+    },
+
+    # --- SYSTEMIC / GENERAL ---
+    "Headache": {
+        "category": "Neurological",
+        "remedy": "Rest in a dark, quiet room and maintain adequate hydration levels.",
+        "medicine": "Paracetamol, Acetaminophen, or Ibuprofen.",
+        "urgency": "Sudden onset of 'thunderclap' headache, slurred speech, or vision loss.",
+        "triage": "Red"
+    },
+    "Muscle Pain": {
+        "category": "Musculoskeletal",
+        "remedy": "R.I.C.E protocol: Rest, Ice, Compression, and Elevation. Gentle mobility exercises.",
+        "medicine": "Topical diclofenac gel or oral NSAIDs (Ibuprofen).",
+        "urgency": "Inability to bear weight, visible deformity, or loss of sensation.",
+        "triage": "Green"
+    },
+    "Skin Rash": {
+        "category": "Dermatological",
+        "remedy": "Maintain area cleanliness, avoid harsh detergents, and use loose-fitting cotton clothing.",
+        "medicine": "Calamine lotion or Cetirizine (anti-histamine).",
+        "urgency": "Rapid spread, blistering, fever, or difficulty breathing (signs of anaphylaxis).",
+        "triage": "Red"
     }
 }
 
