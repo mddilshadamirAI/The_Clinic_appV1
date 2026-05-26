@@ -13,65 +13,61 @@ st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
 st.markdown("""
     <style>
-    /* 1. Main App Background: Light Greenish-Blue */
+    /* 1. Main App Background: Ultra-clean light clinical base */
     .stApp {
-        background: linear-gradient(135deg, #e0f2f1 0%, #d1e8e4 100%);
+        background-color: #f8fafc;
         color: #1e293b;
     }
 
-    /* 2. Sidebar: Charcoal Black with White Fade */
+    /* 2. Sidebar: Professional Charcoal with subtle fade */
     section[data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #1e293b 0%, #334155 100%) !important;
-        border-right: 1px solid #475569;
-    }
-    
-    /* Sidebar Text: White for readability on Charcoal */
-    section[data-testid="stSidebar"] p, 
-    section[data-testid="stSidebar"] div, 
-    section[data-testid="stSidebar"] label {
-        color: #f8fafc !important;
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+        color: #ffffff !important;
     }
 
-    /* 3. Glassmorphism Card Effect: White Frosted Glass */
+    /* Sidebar Text & Elements: Force White for contrast */
+    section[data-testid="stSidebar"] span, 
+    section[data-testid="stSidebar"] label, 
+    section[data-testid="stSidebar"] div {
+        color: #f1f5f9 !important;
+    }
+
+    /* 3. Cards: Soft "Floating" effect */
     .content-card {
         padding: 30px;
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
         margin-bottom: 25px;
     }
 
-    /* 4. Headers: Deep Teal (Matches the Greenish-Blue theme) */
+    /* 4. Headers: Deep Teal (The premium clinical standard) */
     h1, h2, h3 {
         color: #0f766e !important;
+        font-weight: 700 !important;
     }
 
-    /* 5. Buttons: Charcoal Style to match Sidebar */
+    /* 5. Inputs & Selectboxes: Solid and clear */
+    .stSelectbox div[data-baseweb="select"], .stTextInput input {
+        background-color: #ffffff !important;
+        border: 2px solid #cbd5e1 !important;
+        color: #1e293b !important;
+        border-radius: 8px !important;
+    }
+
+    /* 6. Buttons: High-Contrast Charcoal */
     .stButton>button {
-        background: #334155 !important;
-        color: #f8fafc !important;
+        background-color: #1e293b !important;
+        color: #ffffff !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
         border: none !important;
-        border-radius: 8px;
-        transition: 0.3s;
+        padding: 10px 20px !important;
     }
     .stButton>button:hover {
-        background: #0f766e !important;
-        box-shadow: 0 4px 15px rgba(15, 118, 110, 0.3);
-    }
-
-    /* 6. Sidebar Selection: White Fade Hover */
-    div[data-testid="stSidebar"] label {
-        transition: 0.3s;
-        border-radius: 8px;
-    }
-    div[data-testid="stSidebar"] label:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
-        transform: translateX(5px);
-    }
-    div[data-testid="stSidebar"] [data-checked="true"] {
-        background: rgba(255, 255, 255, 0.2) !important;
+        background-color: #0f766e !important;
+        transform: translateY(-2px);
     }
     </style>
 """, unsafe_allow_html=True)
