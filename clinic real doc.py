@@ -13,61 +13,58 @@ st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
 st.markdown("""
     <style>
-    /* 1. Main App Background: Ultra-clean light clinical base */
+    /* 1. Global Background: Sophisticated Bluish-Green Gradient */
     .stApp {
-        background-color: #f8fafc;
-        color: #1e293b;
+        background: linear-gradient(135deg, #0f172a 0%, #115e59 100%);
+        color: #f8fafc;
     }
 
-    /* 2. Sidebar: Professional Charcoal with subtle fade */
+    /* 2. Sidebar: Deep Midnight Charcoal */
     section[data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+        background: #020617 !important;
+        border-right: 1px solid #1e293b;
+    }
+
+    /* Sidebar Text: Ensure absolute white for high contrast */
+    section[data-testid="stSidebar"] p, 
+    section[data-testid="stSidebar"] div, 
+    section[data-testid="stSidebar"] label {
         color: #ffffff !important;
+        font-weight: 500;
     }
 
-    /* Sidebar Text & Elements: Force White for contrast */
-    section[data-testid="stSidebar"] span, 
-    section[data-testid="stSidebar"] label, 
-    section[data-testid="stSidebar"] div {
-        color: #f1f5f9 !important;
-    }
-
-    /* 3. Cards: Soft "Floating" effect */
+    /* 3. Cards: White, high-contrast surface */
     .content-card {
-        padding: 30px;
+        padding: 25px;
         background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        color: #1e293b; /* Dark text for readability */
     }
 
-    /* 4. Headers: Deep Teal (The premium clinical standard) */
+    /* 4. Headers: Deep Teal */
     h1, h2, h3 {
-        color: #0f766e !important;
-        font-weight: 700 !important;
+        color: #0d9488 !important;
     }
 
-    /* 5. Inputs & Selectboxes: Solid and clear */
+    /* 5. Inputs: Pure white surface */
     .stSelectbox div[data-baseweb="select"], .stTextInput input {
         background-color: #ffffff !important;
-        border: 2px solid #cbd5e1 !important;
-        color: #1e293b !important;
-        border-radius: 8px !important;
+        color: #000000 !important;
+        border: 1px solid #cbd5e1 !important;
     }
 
-    /* 6. Buttons: High-Contrast Charcoal */
+    /* 6. Buttons: High-contrast Teal */
     .stButton>button {
-        background-color: #1e293b !important;
-        color: #ffffff !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
+        background-color: #0d9488 !important;
+        color: white !important;
         border: none !important;
-        padding: 10px 20px !important;
+        border-radius: 6px !important;
     }
     .stButton>button:hover {
         background-color: #0f766e !important;
-        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     </style>
 """, unsafe_allow_html=True)
