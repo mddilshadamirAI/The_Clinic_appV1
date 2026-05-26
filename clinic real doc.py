@@ -99,6 +99,33 @@ DISEASE_MAP = {
     "Anxiety / Stress / Mental Health": "Psychiatrist",
     "High Blood Pressure": "Cardiologist"
 }
+SYMPTOM_DIAGNOSTICS = {
+    "Fever": {
+        "remedy": "Maintain strict hydration, prioritize electrolyte-rich fluids, use lukewarm sponging, and ensure adequate ventilation.",
+        "medicine": "Paracetamol (500mg) - monitor core temperature.",
+        "urgency": "Persistent fever > 103°F (39.4°C), severe headache, or stiff neck.",
+        "triage": "Yellow"
+    },
+    "Headache": {
+        "remedy": "Dark, quiet environment, cold compress, and hydration.",
+        "medicine": "Acetaminophen or Ibuprofen.",
+        "urgency": "Sudden onset of 'thunderclap' pain, slurred speech, or vision loss.",
+        "triage": "Red"
+    },
+    "Cough": {
+        "remedy": "Steam inhalation, honey/ginger warm water, salt water gargle.",
+        "medicine": "Dextromethorphan (dry) or Guaifenesin (chesty).",
+        "urgency": "Coughing blood, wheezing, or difficulty breathing.",
+        "triage": "Red"
+    },
+    "Acidity/Heartburn": {
+        "remedy": "Avoid spicy foods/caffeine, eat smaller meals, sit upright.",
+        "medicine": "Antacids (Digene) or Omeprazole.",
+        "urgency": "Pain radiating to jaw/arm or unexplained weight loss.",
+        "triage": "Yellow"
+    }
+}
+
 
 MEDICINE_DB = {
     "Paracetamol": "Used for Fever and Pain relief. Dosage: 500mg (Consult Doctor).",
@@ -159,7 +186,7 @@ MEDICINE_DB = {
 
 # --- 4. SIDEBAR NAVIGATION ---
 st.sidebar.markdown("<h2 style='text-align:center;'>🏥 CLINICAL TOOL</h2>", unsafe_allow_html=True)
-menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance"])
+menu = st.sidebar.radio("Navigation", ["Find a Doctor", "Medicine Database", "BMI Calculator", "Health Guidance", "Symptom Tracker"])
 st.sidebar.markdown("---")
 st.sidebar.info("Logged in as a user connect to developer via email mddilshadamir@gmail.com and give your valuable feedback")
 
@@ -238,6 +265,27 @@ elif menu == "Health Guidance":
         "Depression & Anxiety", 
         "Chronic Fatigue Syndrome"
     ]
+
+elif menu == "Symptom Checker":
+    st.markdown("### 🩺 AI Triage & Assessment")
+    symptom = st.selectbox("Select your symptom:", list(SYMPTOM_DIAGNOSTICS.keys()))
+    
+    if st.button("Get Clinical Advice"):
+        data = SYMPTOM_DIAGNOSTICS[symptom]
+        color = "#ef4444" if data['triage'] == "Red" else "#eab308"
+        
+        st.markdown(f"""
+        <div class='content-card'>
+            <h4>Advice for {symptom}</h4>
+            <p><b>🏡 Remedy:</b> {data['remedy']}</p>
+            <p><b>💊 Medicine:</b> {data['medicine']}</p>
+            <div style='padding: 10px; border-left: 5px solid {color}; background: rgba(239, 68, 68, 0.1);'>
+                <p style='margin:0;'><b>⚠️ Urgency Warning:</b> {data['urgency']}</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if data['triage'] == "Red":
+            st.error("🚨 THIS IS AN URGENT SYMPTOM. PLEASE CONSULT A DOCTOR IMMEDIATELY.")
     
     condition = st.selectbox("Choose Condition", options)
     
