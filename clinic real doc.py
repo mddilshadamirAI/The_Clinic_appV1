@@ -13,78 +13,48 @@ st.sidebar.markdown("👨‍💻 **Developed by Md Dilshad Amir**")
 # --- 2. PROFESSIONAL DARK UI (BLUISH-BLACK) ---
 st.markdown("""
     <style>
-    /* Main Background: Bluish-Black */
+    /* Global Background: Deep Lush Green to Bluish-Mint */
     .stApp {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        color: #f8fafc;
+        background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+        color: #f1f5f9;
     }
 
-    /* Sidebar Styling */
-    section[data-testid="stSidebar"] {
-        background-color: #0f172a !important;
-        border-right: 1px solid #334155;
-    }
-
-    /* Navigation Radio Buttons */
-    .st-eb { color: #f8fafc !important; }
-
-    /* Titles & Headers */
-    h1, h2, h3 {
-        color: #38bdf8 !important; /* Sky Blue Accent */
-        font-family: 'Inter', sans-serif;
-        font-weight: 800;
-    }
-
-    /* Input Boxes & Selectboxes */
-    .stSelectbox div[data-baseweb="select"], .stTextInput input {
-        background-color: #1e293b !important;
-        color: white !important;
-        border: 1px solid #334155 !important;
-        border-radius: 8px !important;
-    }
-    
-    label p {
-        color: #94a3b8 !important; /* Muted slate for labels */
-        font-weight: 600;
-    }
-
-    /* Professional Buttons */
-    .stButton>button {
-        width: 100%;
-        border-radius: 8px;
-        background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 100%);
-        color: white !important;
-        font-weight: bold;
-        border: none;
-        padding: 12px;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    
-    .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
-    }
-
-    /* Custom Card for Results & Guidance */
+    /* Premium Glassmorphism Card Effect */
     .content-card {
-        padding: 25px;
-        background: rgba(30, 41, 59, 0.7);
-        border: 1px solid #334155;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-        margin-bottom: 20px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        margin-bottom: 25px;
+        animation: fadeIn 0.8s ease-out;
     }
 
-    /* Metrics & Info Boxes */
-    div[data-testid="stMetricValue"] {
-        color: #38bdf8 !important;
+    /* Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-    .stAlert {
-        background-color: #1e293b !important;
-        border: 1px solid #334155 !important;
-        color: #f8fafc !important;
+
+    /* Headers: Mint Green Accent */
+    h1, h2, h3 {
+        color: #34d399 !important;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Buttons: Glowing Glass Effect */
+    .stButton>button {
+        background: rgba(52, 211, 153, 0.1) !important;
+        border: 1px solid #34d399 !important;
+        color: #34d399 !important;
+        transition: 0.4s ease;
+    }
+    .stButton>button:hover {
+        background: #34d399 !important;
+        color: #064e3b !important;
+        box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
     }
     </style>
     """, unsafe_allow_html=True)
