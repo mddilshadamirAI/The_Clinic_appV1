@@ -436,9 +436,10 @@ elif menu == "💊 Medicine Database":
             st.link_button(f"Research {search_med}", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
 
 elif menu == "⚖️ BMI Calculator":
-    # 1. Compact Header
+    # Use a custom header with zero bottom margin
     st.markdown("<h3 style='margin-bottom: 0px;'>⚖️ Comprehensive Health Assessment</h3>", unsafe_allow_html=True)
-    # 2. Main content container
+    
+    # 1. Start the container card
     st.markdown("<div class='content-card'>", unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
@@ -448,10 +449,13 @@ elif menu == "⚖️ BMI Calculator":
     with col2:
         body_type = st.selectbox("Body/Activity Type", ["Average", "Athletic/Gym Goer", "Slim/Ectomorph"])
         health_conditions = st.multiselect("Known Health Conditions", 
-                                         ["None", "Diabetes", "High BP", "Low BP", "Heart-related issues", "Obesity"])
+                                           ["None", "Diabetes", "High BP", "Low BP", "Heart-related issues", "Obesity"])
     
+    # Trigger button in a compact way
     if st.button("Calculate Comprehensive Metrics"):
         bmi = weight / ((height_cm/100) ** 2)
+        
+        # Display Metric with compact spacing
         st.metric("Your BMI Score", f"{bmi:.2f}")
         
         # Clinical Logic
@@ -475,10 +479,9 @@ elif menu == "⚖️ BMI Calculator":
         st.info(advice)
         
         st.markdown("### Understanding your BMI")
-        # Ensure this is indented to match the level of st.info(advice)
         st.image("bmi.png", caption="BMI Classification Chart")
-            
-    # This closes the 'content-card' div after the calculation logic
+    
+    # 2. Close the container card immediately
     st.markdown("</div>", unsafe_allow_html=True)
     
 elif menu == "🥗 Health Guidance":
