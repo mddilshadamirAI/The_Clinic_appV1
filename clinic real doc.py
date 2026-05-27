@@ -70,16 +70,6 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     
-    /* Remove extra space between your header and the content below */
-[data-testid="stMarkdownContainer"] h3 {
-    margin-bottom: 0px !important;
-    padding-bottom: 0px !important;
-}
-
-/* Tighten the vertical gap between Streamlit elements */
-.stVerticalBlock {
-    gap: 0.5rem !important;
-}
     </style>
 """, unsafe_allow_html=True)
 
