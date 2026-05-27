@@ -435,20 +435,60 @@ elif menu == "💊 Medicine Database":
             st.link_button(f"Research {search_med}", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
 
 elif menu == "⚖️ BMI Calculator":
-    st.markdown("### ⚖️ Digital Health Assessment")
-    col1, col2 = st.columns(2)
-    with col1:
-        weight = st.number_input("Weight (kg)", min_value=1.0, value=70.0)
-    with col2:
-        height_cm = st.number_input("Height (cm)", min_value=1.0, value=170.0)
+    st.markdown("### ⚖️ Comprehensive Health Assessment")
     
-    if st.button("Calculate Metrics"):
-        bmi = weight / ((height_cm/100) ** 2)
-        st.metric("BMI Score", f"{bmi:.2f}")
+    with st.container():
+        st.markdown("<div class='content-card'>", unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
+        with col1:
+            weight = st.number_input("Weight (kg)", min_value=1.0, value=70.0)
+            height_cm = st.number_input("Height (cm)", min_value=1.0, value=170.0)
+        with col2:
+            # Contextual User Inputs
+            body_type = st.selectbox("Body/Activity Type", ["Average", "Athletic/Gym Goer", "Slim/Ectomorph"])
+            health_conditions = st.multiselect("Known Health Conditions", 
+                                             ["None", "Diabetes", "High BP", "Low BP", "Heart-related issues", "Obesity"])
         
-        status = "Healthy" if 18.5 <= bmi < 25 else "Attention Required"
-        st.markdown(f"<div class='content-card' style='text-align:center;'><h4>Status: {status}</h4></div>", unsafe_allow_html=True)
+        if st.button("Calculate Comprehensive Metrics"):
+            # Logic Engine
+            bmi = weight / ((height_cm/100) ** 2)
+            
+            # Display Metric
+            st.metric("Your BMI Score", f"{bmi:.2f}")
+            
+            # Advice Engine
+            st.markdown("---")
+            st.subheader("Clinical Guidance & Focus Areas")
+            
+            # Determine Status
+            if bmi < 18.5:
+                status = "Underweight"
+                advice = "Focus on nutrient-dense calorie intake and strength training to build muscle mass."
+            elif 18.5 <= bmi < 25:
+                status = "Healthy"
+                advice = "Maintain your current lifestyle. Ensure a balance of cardio and resistance training."
+            elif 25 <= bmi < 30:
+                status = "Overweight"
+                advice = "Focus on moderate aerobic activity and portion control."
+            else:
+                status = "Obese"
+                advice = "Prioritize consultation with a healthcare provider and focus on low-impact movement."
 
+            # Customize advice based on user conditions
+            if "Diabetes" in health_conditions:
+                advice += " Since you mentioned Diabetes, prioritize complex carbohydrates and regular glucose monitoring."
+            if "High BP" in health_conditions:
+                advice += " Given your High BP, focus on low-sodium intake and stress-reduction techniques."
+            if body_type == "Athletic/Gym Goer":
+                advice += " Note: BMI may overestimate body fat in muscular individuals; focus on body composition analysis instead."
+
+            st.info(f"**Status:** {status} | **Priority:** {advice}")
+            
+            # Visualizing BMI categories
+            st.markdown("### Understanding your BMI")
+            
+            
+        st.markdown("</div>", unsafe_allow_html=True)
 elif menu == "🥗 Health Guidance":
     st.markdown("### 🥗 Lifestyle & Chronic Management")
     
