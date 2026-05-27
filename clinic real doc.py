@@ -475,9 +475,10 @@ elif menu == "⚖️ BMI Calculator":
         st.info(advice)
         
         st.markdown("### Understanding your BMI")
-# Use the file name directly if it is in the same folder as your script
-st.image("bmi.png", caption="BMI Classification Chart")
+        # Ensure this is indented to match the level of st.info(advice)
+        st.image("bmi.png", caption="BMI Classification Chart")
             
+    # This closes the 'content-card' div after the calculation logic
     st.markdown("</div>", unsafe_allow_html=True)
     
 elif menu == "🥗 Health Guidance":
