@@ -596,31 +596,40 @@ if menu == "🔍 Find a Doctor":
 
 elif menu == "💊 Medicine Database":
     st.markdown("### 💊 Pharmaceutical Reference")
-    search_med = st.text_input("Start typing to search medication (e.g., Metformin):")
     
-    # 1. Filter Logic: Find matches in real-time
-    # This checks if the user's input exists inside any of the keys in your DB
+    # 1. Create a key in session_state to track the search
+    if 'search_query' not in st.session_state:
+        st.session_state.search_query = ""
+
+    # 2. Text input that updates state automatically
+    search_med = st.text_input("Start typing to search medication:", 
+                               value=st.session_state.search_query,
+                               key="med_input")
+
+    # 3. Filtering Logic (This runs every time a character is typed)
     if search_med:
         matches = [m for m in MEDICINE_DB.keys() if search_med.lower() in m.lower()]
         
         if matches:
-            # 2. Show a dynamic selectbox if there are multiple matches
-            selection = st.selectbox("Select a matching medication:", matches)
+            # Display matching count
+            st.caption(f"Found {len(matches)} matches...")
             
-            # 3. Display the details of the selected item
+            # Show the results dynamically
+            selection = st.selectbox("Select from results:", matches)
+            
             st.markdown(f"""
                 <div class='content-card'>
                     <h4>{selection}</h4>
                     <p>{MEDICINE_DB[selection]}</p>
                 </div>
             """, unsafe_allow_html=True)
-            
         else:
-            st.warning("No matches found in local records.")
-            st.link_button(f"Search global database for '{search_med}'", 
+            st.warning("No matches found locally.")
+            st.link_button(f"Search Google for '{search_med}'", 
                            f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
     else:
-        st.info("💡 Tip: Type a few letters (e.g., 'Met') to see matching medicines pop up.")
+        st.info("💡 Type to see medicines uses instantly.")
+   
 
 elif menu == "⚖️ BMI Calculator":
     st.markdown("<h3 style='margin-bottom: 0px;'>⚖️ Comprehensive Health Assessment</h3>", unsafe_allow_html=True)
