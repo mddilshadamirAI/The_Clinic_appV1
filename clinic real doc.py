@@ -488,7 +488,8 @@ elif menu == "⚖️ BMI Calculator":
         st.markdown("### Understanding your BMI")
         
 
-[Image of BMI classification chart]
+# Replace that line with this:
+st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/BMI_chart.svg/500px-BMI_chart.svg.png", caption="BMI Classification Chart")
 
             
     st.markdown("</div>", unsafe_allow_html=True)
