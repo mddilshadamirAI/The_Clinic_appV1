@@ -436,11 +436,15 @@ elif menu == "💊 Medicine Database":
             st.link_button(f"Research {search_med}", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
 
 elif menu == "⚖️ BMI Calculator":
-    # Use a custom header with zero bottom margin
     st.markdown("<h3 style='margin-bottom: 0px;'>⚖️ Comprehensive Health Assessment</h3>", unsafe_allow_html=True)
-    
-    # 1. Start the container card
     st.markdown("<div class='content-card'>", unsafe_allow_html=True)
+    
+    # --- NEW PERSONALIZED INPUTS ---
+    colA, colB = st.columns(2)
+    with colA:
+        user_name = st.text_input("Full Name", value="Patient")
+    with colB:
+        last_weighing_date = st.date_input("Last Weighing Date")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -451,37 +455,42 @@ elif menu == "⚖️ BMI Calculator":
         health_conditions = st.multiselect("Known Health Conditions", 
                                            ["None", "Diabetes", "High BP", "Low BP", "Heart-related issues", "Obesity"])
     
-    # Trigger button in a compact way
-    if st.button("Calculate Comprehensive Metrics"):
+    if st.button("Calculate & Generate Report"):
         bmi = weight / ((height_cm/100) ** 2)
-        
-        # Display Metric with compact spacing
         st.metric("Your BMI Score", f"{bmi:.2f}")
         
         # Clinical Logic
-        if bmi < 18.5:
-            status, advice = "Underweight", "Focus on nutrient-dense calorie intake and strength training."
-        elif 18.5 <= bmi < 25:
-            status, advice = "Healthy", "Maintain your current lifestyle. Balance cardio and resistance."
-        elif 25 <= bmi < 30:
-            status, advice = "Overweight", "Focus on moderate aerobic activity and portion control."
-        else:
-            status, advice = "Obese", "Consult a healthcare provider; focus on low-impact movement."
+        if bmi < 18.5: status, advice_list = "Underweight", ["Prioritize nutrient-dense foods.", "Incorporate strength training."]
+        elif 18.5 <= bmi < 25: status, advice_list = "Healthy", ["Maintain your balanced diet.", "Continue regular activity."]
+        elif 25 <= bmi < 30: status, advice_list = "Overweight", ["Focus on portion control.", "Increase aerobic activity."]
+        else: status, advice_list = "Obese", ["Consult a healthcare provider for a weight-loss plan.", "Focus on low-impact movement."]
 
-        # Dynamic Advice
-        if "Diabetes" in health_conditions:
-            advice += " Prioritize complex carbs and glucose monitoring."
-        if "High BP" in health_conditions:
-            advice += " Focus on low-sodium intake."
+        # Apply Condition Logic
+        if "Diabetes" in health_conditions: advice_list.insert(0, "DIABETES ALERT: Monitor glucose daily.")
+        if "High BP" in health_conditions: advice_list.insert(0, "HIGH BP ALERT: Strict low-sodium diet.")
         
-        # Display Results
+        advice_text = "\n".join(advice_list)
         st.markdown(f"**Status:** {status}")
-        st.info(advice)
+        for point in advice_list: st.info(point)
+        
+        # --- PDF GENERATION LOGIC ---
+        from datetime import date
+        current_date = date.today()
+        
+        # Create PDF content
+        report_text = f"BMI Report for {user_name}\nDate: {current_date}\nLast Weighing: {last_weighing_date}\nBMI: {bmi:.2f}\nStatus: {status}\nAdvice: {advice_text}"
+        
+        # Download Button
+        st.download_button(
+            label="📥 Download Your Personal BMI Report",
+            data=report_text,
+            file_name=f"bmireport_{user_name.replace(' ', '_')}.txt", # Use .txt for simplicity, or use fpdf for actual PDF
+            mime="text/plain"
+        )
         
         st.markdown("### Understanding your BMI")
         st.image("bmi.png", caption="BMI Classification Chart")
     
-    # 2. Close the container card immediately
     st.markdown("</div>", unsafe_allow_html=True)
     
 elif menu == "🥗 Health Guidance":
