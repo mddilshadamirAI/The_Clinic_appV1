@@ -439,9 +439,6 @@ elif menu == "⚖️ BMI Calculator":
     # 1. Compact Header
     st.markdown("<h3 style='margin-bottom: 0px;'>⚖️ Comprehensive Health Assessment</h3>", unsafe_allow_html=True)
     
-    # 2. Main content container
-    st.markdown("<div class='content-card'>", unsafe_allow_html=True)
-    
     col1, col2 = st.columns(2)
     with col1:
         weight = st.number_input("Weight (kg)", min_value=1.0, value=70.0)
@@ -476,8 +473,8 @@ elif menu == "⚖️ BMI Calculator":
         st.info(advice)
         
         st.markdown("### Understanding your BMI")
-        # Now placed INSIDE the if-button block and properly indented
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/BMI_chart.svg/500px-BMI_chart.svg.png", caption="BMI Classification Chart")
+# Use the file name directly if it is in the same folder as your script
+st.image("bmi.png", caption="BMI Classification Chart")
             
     st.markdown("</div>", unsafe_allow_html=True)
     
