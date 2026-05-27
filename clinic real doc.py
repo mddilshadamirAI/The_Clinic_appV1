@@ -321,60 +321,225 @@ SYMPTOM_DIAGNOSTICS = {
 }
 
 MEDICINE_DB = {
-    "Paracetamol": "Used for Fever and Pain relief. Dosage: 500mg (Consult Doctor).",
-    "Cetirizine": "Used for Allergies and Skin Rashes.",
-    "Azithromycin": "Antibiotic for bacterial infections.",
-    "Digene": "Used for acidity and gas.",
-    "Acetaminophen": "Pain relief and fever reduction",
-    "Amoxicillin": "Bacterial infections (e.g., strep throat)",
-    "Ibuprofen (Advil/Motrin)": "Inflammation, pain, and fever",
-    "Atorvastatin (Lipitor)": "High cholesterol",
-    "Metformin": "Type 2 diabetes",
-    "Lisinopril": "High blood pressure",
-    "Albuterol": "Asthma and bronchospasm",
-    "Levothyroxine": "Hypothyroidism (underactive thyroid)",
-    "Amlodipine": "High blood pressure and chest pain",
-    "Gabapentin": "Nerve pain and seizures",
-    "Omeprazole (Prilosec)": "Acid reflux and heartburn",
-    "Losartan": "High blood pressure",
-    "Sertraline (Zoloft)": "Depression and anxiety",
-    "Metoprolol": "High blood pressure and chest pain",
-    "Azithromycin (Z-Pak)": "Bacterial infections",
-    "Hydrochlorothiazide": "Fluid retention and high blood pressure",
-    "Warfarin (Coumadin)": "Blood clots",
-    "Furosemide (Lasix)": "Edema (fluid buildup)",
-    "Pantoprazole": "GERD and stomach acid issues",
-    "Escitalopram (Lexapro)": "Anxiety and depression",
-    "Ranitidine (Zantac)": "Heartburn and ulcers",
-    "Prednisone": "Severe inflammation and allergies",
-    "Rosuvastatin (Crestor)": "High cholesterol",
-    "Tamsulosin (Flomax)": "Enlarged prostate symptoms",
-    "Meloxicam": "Arthritis pain",
-    "Clopidogrel (Plavix)": "Prevents stroke and heart attack",
-    "Montelukast (Singulair)": "Asthma and seasonal allergies",
-    "Fluoxetine (Prozac)": "Depression and OCD",
-    "Tramadol": "Moderate to severe pain",
-    "Duloxetine (Cymbalta)": "Nerve pain and depression",
-    "Lorazepam (Ativan)": "Anxiety and seizures",
-    "Ciprofloxacin": "Urinary tract and skin infections",
-    "Doxycycline": "Acne and bacterial infections",
-    "Cyclobenzaprine": "Muscle spasms",
-    "Cephalexin (Keflex)": "Skin and bone infections",
-    "Venlafaxine (Effexor)": "Panic disorder and depression",
-    "Ventolin (Salbutamol)": "Shortness of breath",
-    "Diazepam (Valium)": "Anxiety and muscle spasms",
-    "Fluticasone (Flonase)": "Nasal allergies",
-    "Oxycodone": "Severe pain",
-    "Warfarin": "To prevent blood clotting",
-    "Methylprednisolone": "Allergic reactions",
-    "Aspirin": "Pain and prevention of heart attack",
-    "Loratadine (Claritin)": "Allergies (non-drowsy)",
-    "Cetirizine (Zyrtec)": "Hay fever and hives",
-    "Ranitidine": "Stomach ulcers",
-    "Spironolactone": "Heart failure and high blood pressure",
-    "Allopurinol": "Gout",
-    "Folic Acid": "Anemia and prenatal health",
-    "Insulin Glargine (Lantus)": "Diabetes management"
+    # --- PAIN & FEVER ---
+    "Paracetamol": "Common fever and mild pain reliever.",
+    "Acetaminophen": "Reduces fever and helps with headaches.",
+    "Ibuprofen": "Reduces inflammation, body aches, and fever.",
+    "Aspirin": "Used for minor pain and to help prevent heart attacks.",
+    "Naproxen": "Long-lasting relief for muscle and joint pain.",
+    "Diclofenac": "Strong relief for joint and muscle inflammation.",
+    "Tramadol": "Prescription strength for moderate to severe pain.",
+    "Codeine": "Strong pain reliever, often used for coughs too.",
+    "Oxycodone": "Very strong pain medication for severe pain.",
+    "Hydrocodone": "Prescription pain relief for severe injuries.",
+    "Meloxicam": "Relieves stiffness and pain from arthritis.",
+    "Celecoxib": "Helps with chronic pain and arthritis.",
+    "Morphine": "Hospital-grade relief for intense, severe pain.",
+    "Fentanyl": "Extremely strong pain relief (clinical use only).",
+    "Ketorolac": "Short-term relief for severe post-surgery pain.",
+    "Piroxicam": "Reduces pain and swelling in joints.",
+    "Indomethacin": "Used specifically for gout pain and inflammation.",
+    "Butalbital": "Often combined with caffeine for severe migraines.",
+    "Topiramate": "Used to prevent migraine headaches.",
+    "Sumatriptan": "Treats migraine headaches once they start.",
+
+    # --- ALLERGIES & RESPIRATORY ---
+    "Cetirizine": "Daily allergy relief for sneezing and itchy eyes.",
+    "Loratadine": "Non-drowsy relief for seasonal allergies.",
+    "Fexofenadine": "Strong relief for hay fever and skin hives.",
+    "Diphenhydramine": "Helps with severe allergies and can aid sleep.",
+    "Fluticasone": "Nasal spray for stuffy, runny noses.",
+    "Montelukast": "Keeps airways open for asthma and allergies.",
+    "Albuterol": "Inhaler for sudden asthma or breathing trouble.",
+    "Salbutamol": "Opens airways during a coughing/wheezing fit.",
+    "Budesonide": "Reduces swelling in lungs for asthma control.",
+    "Mometasone": "Nasal spray for long-term allergy congestion.",
+    "Pseudoephedrine": "Decongestant to help breathe through a blocked nose.",
+    "Phenylephrine": "Helps shrink swollen nasal passages.",
+    "Guaifenesin": "Thins mucus to make coughing more productive.",
+    "Dextromethorphan": "Blocks the urge to cough.",
+    "Bromhexine": "Helps clear sticky phlegm from the throat.",
+    "Chlorpheniramine": "Relieves cold and allergy symptoms.",
+    "Levocetirizine": "Potent relief for year-round allergies.",
+    "Montelukast Sodium": "Prevents asthma attacks and allergy symptoms.",
+    "Theophylline": "Helps relax muscles around airways.",
+    "Ipratropium": "Helps dry up runny noses and open airways.",
+
+    # --- DIGESTION & STOMACH ---
+    "Omeprazole": "Reduces acid for heartburn and reflux.",
+    "Pantoprazole": "Treats stomach acid issues and GERD.",
+    "Esomeprazole": "Stronger acid reducer for chronic heartburn.",
+    "Lansoprazole": "Protects the stomach lining from excess acid.",
+    "Ranitidine": "Relieves occasional heartburn.",
+    "Digene": "Neutralizes gas and stomach acid immediately.",
+    "Simethicone": "Reduces painful bloating and gas.",
+    "Loperamide": "Stops sudden diarrhea.",
+    "Bisacodyl": "Helps with constipation.",
+    "Lactulose": "Gentle stool softener for constipation.",
+    "Metoclopramide": "Relieves nausea and helps stomach move food.",
+    "Ondansetron": "Stops severe nausea and vomiting.",
+    "Domperidone": "Helps with bloating and nausea after eating.",
+    "Dicyclomine": "Calms stomach cramps (IBS symptoms).",
+    "Hyoscine": "Relieves abdominal pain and stomach spasms.",
+    "Psyllium Husk": "Natural fiber for regular bowel movements.",
+    "Magnesium Hydroxide": "Laxative for constipation and acid relief.",
+    "Famotidine": "Reduces stomach acid before a meal.",
+    "Rabeprazole": "Heals stomach ulcers caused by excess acid.",
+    "Cisapride": "Helps food move through the digestive tract.",
+
+    # --- INFECTIONS (Antibiotics/Antivirals) ---
+    "Amoxicillin": "Standard antibiotic for throat and ear infections.",
+    "Azithromycin": "Short-course antibiotic for bacterial infections.",
+    "Ciprofloxacin": "Treats urinary and some skin infections.",
+    "Doxycycline": "Treats acne and various bacterial illnesses.",
+    "Cephalexin": "Used for common skin and bone infections.",
+    "Metronidazole": "Treats infections caused by parasites.",
+    "Clindamycin": "Strong antibiotic for deep skin or dental infections.",
+    "Nitrofurantoin": "Specific antibiotic for bladder infections.",
+    "Trimethoprim": "Helps clear up urinary tract infections.",
+    "Sulfamethoxazole": "Common antibiotic for various infections.",
+    "Acyclovir": "Treats viral infections like cold sores.",
+    "Valacyclovir": "Fights off shingles and genital herpes.",
+    "Fluconazole": "Treats fungal/yeast infections.",
+    "Clotrimazole": "Cream for athlete's foot and skin fungus.",
+    "Terbinafine": "Strong medicine for nail fungus.",
+    "Nystatin": "Used for oral thrush (fungal mouth infection).",
+    "Oseltamivir": "Reduces duration of the flu.",
+    "Cefixime": "Antibiotic for bacterial infections of the lungs.",
+    "Levofloxacin": "Powerful antibiotic for respiratory infections.",
+    "Mupirocin": "Antibiotic cream for infected skin wounds.",
+
+    # --- CHRONIC CONDITIONS (BP, Cholesterol, Diabetes) ---
+    "Metformin": "Controls blood sugar in Type 2 diabetes.",
+    "Lisinopril": "Lowers blood pressure to protect the heart.",
+    "Amlodipine": "Relaxes blood vessels to lower blood pressure.",
+    "Atorvastatin": "Lowers bad cholesterol to protect heart health.",
+    "Rosuvastatin": "Potent cholesterol-lowering medicine.",
+    "Losartan": "Helps manage high blood pressure.",
+    "Metoprolol": "Slows heart rate and lowers blood pressure.",
+    "Hydrochlorothiazide": "Helps body shed extra fluid to lower BP.",
+    "Spironolactone": "Manages heart failure and fluid buildup.",
+    "Furosemide": "Strong diuretic for swelling (edema).",
+    "Levothyroxine": "Replaces hormones for an underactive thyroid.",
+    "Insulin Glargine": "Long-acting insulin for blood sugar control.",
+    "Glipizide": "Helps the pancreas release insulin.",
+    "Sitagliptin": "Helps regulate blood sugar levels.",
+    "Telmisartan": "Manages blood pressure and heart health.",
+    "Enalapril": "Prevents long-term heart and kidney damage.",
+    "Simvastatin": "Standard medicine to lower cholesterol.",
+    "Carvedilol": "Helps the heart pump more efficiently.",
+    "Clopidogrel": "Prevents blood clots and heart attacks.",
+    "Warfarin": "Strong medicine to prevent harmful blood clots.",
+
+    # --- MENTAL HEALTH & NERVES ---
+    "Sertraline": "Helps balance mood for anxiety and depression.",
+    "Escitalopram": "Common treatment for anxiety and depression.",
+    "Fluoxetine": "Helps with mood regulation and OCD.",
+    "Duloxetine": "Treats depression and nerve-related pain.",
+    "Gabapentin": "Treats nerve pain and helps prevent seizures.",
+    "Lorazepam": "Reduces severe anxiety and calms nerves.",
+    "Diazepam": "Relaxes muscles and calms anxiety.",
+    "Venlafaxine": "Boosts mood for panic and depressive states.",
+    "Amitriptyline": "Used for depression and nerve pain relief.",
+    "Alprazolam": "Short-term relief for panic attacks.",
+    "Pregabalin": "Relieves nerve pain and seizures.",
+    "Quetiapine": "Helps stabilize mood swings.",
+    "Buspirone": "Gentle daily aid for chronic anxiety.",
+    "Zolpidem": "Short-term help for sleeping problems.",
+    "Melatonin": "Natural supplement for sleep cycles.",
+    "Mirtazapine": "Helps with mood and sleeping issues.",
+    "Bupropion": "Helps with mood and quitting smoking.",
+    "Citalopram": "Standard treatment for depression.",
+    "Paroxetine": "Helps manage severe social anxiety.",
+    "Clonazepam": "Prevents seizures and panic attacks.",
+
+    # --- MUSCLE & BONE ---
+    "Cyclobenzaprine": "Relaxes stiff, spasming muscles.",
+    "Methocarbamol": "Helps with muscle pain and injury recovery.",
+    "Baclofen": "Reduces muscle tightness and cramping.",
+    "Tizanidine": "Relaxes muscles for back or neck pain.",
+    "Allopurinol": "Prevents gout attacks.",
+    "Colchicine": "Relieves pain during a gout flare-up.",
+    "Calcium Carbonate": "Supplements bone health.",
+    "Vitamin D3": "Essential for bone and immune health.",
+    "Magnesium Oxide": "Supports muscle function.",
+    "Alendronate": "Strengthens bones (prevents osteoporosis).",
+    "Glucosamine": "Helps keep joints flexible.",
+    "Chondroitin": "Supports joint health and cushioning.",
+    "Orphenadrine": "Helps with painful muscle spasms.",
+    "Dexamethasone": "Strong steroid for inflammation.",
+    "Prednisone": "Used for severe allergic reactions or asthma.",
+    "Methylprednisolone": "Reduces severe inflammatory swelling.",
+    "Hydrocortisone": "Cream for skin inflammation and rashes.",
+    "Betamethasone": "Stronger cream for stubborn skin rashes.",
+    "Triamcinolone": "Reduces severe skin swelling/itching.",
+    "Sulfasalazine": "Reduces inflammation in joints.",
+
+    # --- SUPPLEMENTS & ESSENTIALS ---
+    "Folic Acid": "Crucial for blood health and pregnancy.",
+    "Ferrous Sulfate": "Iron supplement for anemia/low energy.",
+    "Multivitamin": "General daily supplement for health.",
+    "Vitamin C": "Boosts immunity and skin health.",
+    "Zinc": "Supports immune system and healing.",
+    "Omega-3": "Fish oil for heart and brain health.",
+    "Probiotic": "Helps with gut health and digestion.",
+    "Potassium": "Essential for muscle and heart function.",
+    "Vitamin B12": "Boosts energy and nerve health.",
+    "B-Complex": "Group of vitamins for energy and metabolism.",
+    "Selenium": "Supports thyroid and immune function.",
+    "Calcium Citrate": "Easier to absorb form of calcium.",
+    "Coenzyme Q10": "Supports heart health and energy.",
+    "Magnesium Glycinate": "Better absorbed magnesium for relaxation.",
+    "Iron Bisglycinate": "Gentle iron for sensitive stomachs.",
+    "Vitamin E": "Antioxidant for skin and cell health.",
+    "Vitamin K2": "Helps calcium stay in bones.",
+    "Ashwagandha": "Herbal supplement for stress management.",
+    "Turmeric": "Natural anti-inflammatory.",
+    "Ginger": "Natural remedy for nausea.",
+
+    # --- SKIN, EYES, & EARS ---
+    "Benzoyl Peroxide": "Kills bacteria for acne treatment.",
+    "Salicylic Acid": "Clears pores for acne and warts.",
+    "Hydroquinone": "Lightens dark spots on the skin.",
+    "Adapalene": "Retinoid for deep acne prevention.",
+    "Calamine": "Relieves itchy bug bites or rashes.",
+    "Permethrin": "Cream for scabies or lice.",
+    "Ketoconazole": "Fights stubborn dandruff and fungus.",
+    "Silver Sulfadiazine": "Cream for burn healing.",
+    "Timolol": "Eye drops for glaucoma.",
+    "Latanoprost": "Lowers pressure inside the eye.",
+    "Ciprofloxacin Eye Drops": "Antibiotic for eye infections.",
+    "Ofloxacin": "Antibiotic drops for ear infections.",
+    "Carbamide Peroxide": "Helps remove earwax.",
+    "Fluocinolone": "Eardrops for ear canal inflammation.",
+    "Sodium Hyaluronate": "Artificial tears for dry eyes.",
+    "Povidone-Iodine": "Antiseptic to clean wounds.",
+    "Hydrogen Peroxide": "Cleans minor cuts and scrapes.",
+    "Chlorhexidine": "Antiseptic mouthwash.",
+    "Benzocaine": "Numbs pain in mouth/gums.",
+    "Azelic Acid": "Treats acne and redness.",
+
+    # --- MISCELLANEOUS ---
+    "Tamsulosin": "Helps men with prostate issues.",
+    "Finasteride": "Treats hair loss and prostate issues.",
+    "Sildenafil": "Treats erectile dysfunction.",
+    "Tadalafil": "Long-acting treatment for ED.",
+    "Dutasteride": "Treats enlarged prostate symptoms.",
+    "Nitrofurantoin": "Prevents bladder infections.",
+    "Desmopressin": "Helps control bedwetting.",
+    "Oxybutynin": "Controls overactive bladder.",
+    "Tolterodine": "Relaxes bladder for bladder control.",
+    "Phenazopyridine": "Relieves pain from bladder infections.",
+    "Tamoxifen": "Used in breast cancer hormone therapy.",
+    "Anastrozole": "Used for breast cancer maintenance.",
+    "Letrozole": "Used to treat breast cancer.",
+    "Methotrexate": "Reduces inflammation in arthritis.",
+    "Hydroxychloroquine": "Treats autoimmune conditions.",
+    "Allopurinol": "Prevents uric acid buildup (gout).",
+    "Febuxostat": "Lower uric acid levels.",
+    "Levodopa": "Treats tremors in Parkinson’s.",
+    "Carbidopa": "Helps Levodopa work better.",
+    "Donepezil": "Helps with memory/Alzheimer’s symptoms."
 }
 
 # --- 4. SIDEBAR NAVIGATION ---
@@ -431,14 +596,31 @@ if menu == "🔍 Find a Doctor":
 
 elif menu == "💊 Medicine Database":
     st.markdown("### 💊 Pharmaceutical Reference")
-    search_med = st.text_input("Search Medication (e.g., Metformin):").title()
+    search_med = st.text_input("Start typing to search medication (e.g., Metformin):")
     
+    # 1. Filter Logic: Find matches in real-time
+    # This checks if the user's input exists inside any of the keys in your DB
     if search_med:
-        if search_med in MEDICINE_DB:
-            st.markdown(f"<div class='content-card'><h4>{search_med}</h4><p>{MEDICINE_DB[search_med]}</p></div>", unsafe_allow_html=True)
+        matches = [m for m in MEDICINE_DB.keys() if search_med.lower() in m.lower()]
+        
+        if matches:
+            # 2. Show a dynamic selectbox if there are multiple matches
+            selection = st.selectbox("Select a matching medication:", matches)
+            
+            # 3. Display the details of the selected item
+            st.markdown(f"""
+                <div class='content-card'>
+                    <h4>{selection}</h4>
+                    <p>{MEDICINE_DB[selection]}</p>
+                </div>
+            """, unsafe_allow_html=True)
+            
         else:
-            st.warning("Not in local records. Directing to global medical database...")
-            st.link_button(f"Research {search_med}", f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
+            st.warning("No matches found in local records.")
+            st.link_button(f"Search global database for '{search_med}'", 
+                           f"https://www.google.com/search?q={urllib.parse.quote(search_med + ' uses dosage')}")
+    else:
+        st.info("💡 Tip: Type a few letters (e.g., 'Met') to see matching medicines pop up.")
 
 elif menu == "⚖️ BMI Calculator":
     st.markdown("<h3 style='margin-bottom: 0px;'>⚖️ Comprehensive Health Assessment</h3>", unsafe_allow_html=True)
