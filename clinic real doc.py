@@ -486,13 +486,11 @@ elif menu == "⚖️ BMI Calculator":
         st.info(advice)
         
         st.markdown("### Understanding your BMI")
-        
-
-# Replace that line with this:
-st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/BMI_chart.svg/500px-BMI_chart.svg.png", caption="BMI Classification Chart")
-
+        # Now placed INSIDE the if-button block and properly indented
+        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/BMI_chart.svg/500px-BMI_chart.svg.png", caption="BMI Classification Chart")
             
     st.markdown("</div>", unsafe_allow_html=True)
+    
 elif menu == "🥗 Health Guidance":
     st.markdown("### 🥗 Lifestyle & Chronic Management")
     
