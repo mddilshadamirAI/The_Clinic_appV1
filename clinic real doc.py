@@ -438,6 +438,8 @@ elif menu == "💊 Medicine Database":
 elif menu == "⚖️ BMI Calculator":
     # 1. Compact Header
     st.markdown("<h3 style='margin-bottom: 0px;'>⚖️ Comprehensive Health Assessment</h3>", unsafe_allow_html=True)
+    # 2. Main content container
+    st.markdown("<div class='content-card'>", unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     with col1:
