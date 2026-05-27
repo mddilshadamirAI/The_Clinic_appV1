@@ -69,6 +69,11 @@ st.markdown("""
         background-color: #0f766e !important;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
+    /* Gives the list items more space and makes them look like a cohesive clinical guide */
+.content-card div {
+    margin-bottom: 8px !important;
+    line-height: 1.5;
+}
     
     </style>
 """, unsafe_allow_html=True)
@@ -496,37 +501,93 @@ elif menu == "⚖️ BMI Calculator":
 elif menu == "🥗 Health Guidance":
     st.markdown("### 🥗 Lifestyle & Chronic Management")
     
-    # Ensure these options match the dictionary keys exactly
-    options = [
-        "Diabetes", 
-        "High Blood Pressure (BP)", 
-        "Obesity", 
-        "Heart Disease", 
-        "Depression & Anxiety", 
-        "Chronic Fatigue Syndrome"
-    ]
-
-
-    condition = st.selectbox("Choose Condition", options)
-    
-    guides = {
-        "Diabetes": ("🍎 Blood Sugar Control", "Prioritize low-GI foods (oats, legumes). Limit carbs. Daily 20-min cardio."),
-        "High Blood Pressure (BP)": ("❤️ Heart Health", "DASH Diet: low salt, high potassium. Stress management (Yoga/Meditation)."),
-        "Obesity": ("🏃 Metabolic Boost", "High protein intake. Caloric tracking. Strength training 3x weekly."),
-        "Heart Disease": ("🫀 Daily Habit", "Consume Heart-Healthy Fats and Fiber (nuts, olive oil, vegetables) and avoid trans-fats. Quit smoking immediately."),
-        "Depression & Anxiety": ("🧠 Daily Habit", "Practice Daily Mindfulness or Gratitude Journaling for 5–10 minutes to reduce cortisol levels."),
-        "Chronic Fatigue Syndrome": ("⚡ Daily Habit", "Follow a Structured Pacing Schedule—budget your energy by dividing tasks into smaller chunks throughout the day.")    
+    # 1. Define Emojis for each condition
+    condition_icons = {
+        "Diabetes": "🍎", 
+        "High Blood Pressure (BP)": "❤️", 
+        "Obesity": "🏃", 
+        "Heart Disease": "🫀", 
+        "Depression & Anxiety": "🧠", 
+        "Chronic Fatigue Syndrome": "⚡"
     }
     
-    # This logic displays the data based on your selection
-    if condition in guides:
-        title, desc = guides[condition]
-        st.markdown(f"""
-            <div class='content-card'>
-                <h4>{title}</h4>
-                <p style='font-size: 1.1em; color: #f8fafc;'>{desc}</p>
-            </div>
-        """, unsafe_allow_html=True)
+  
+    
+    guides = {
+    "Diabetes": [
+        "1. Prioritize low-GI foods: Focus on oats, legumes, and non-starchy vegetables to keep blood sugar stable.",
+        "2. Portion control: Use the 'plate method'—half your plate with vegetables, one-quarter protein, one-quarter whole grains.",
+        "3. Consistency is key: Eat meals at the same time daily to help manage insulin response.",
+        "4. Stay active: Engage in at least 20 minutes of moderate cardio (brisk walking) daily.",
+        "5. Hydration: Opt for water or herbal teas instead of sugary sodas or juices.",
+        "6. Regular monitoring: Keep a log of your blood sugar levels to share with your endocrinologist."
+    ],
+    "High Blood Pressure (BP)": [
+        "1. Adopt the DASH Diet: Focus on fruits, vegetables, and low-fat dairy while minimizing sodium intake.",
+        "2. Limit salt: Strictly avoid processed/canned foods, which are hidden sources of sodium.",
+        "3. Potassium-rich diet: Incorporate bananas, spinach, and sweet potatoes to help balance blood pressure.",
+        "4. Stress management: Dedicate 10 minutes daily to deep breathing, yoga, or meditation.",
+        "5. Limit stimulants: Reduce caffeine and alcohol intake as they can cause temporary BP spikes.",
+        "6. Quality sleep: Aim for 7–9 hours of restful sleep to allow your cardiovascular system to recover."
+    ],
+    "Obesity": [
+        "1. Protein-focused meals: Increase protein intake to stay fuller for longer and preserve muscle mass.",
+        "2. Track your intake: Use a food log to become aware of your daily caloric consumption.",
+        "3. Strength training: Aim for resistance training 3x weekly to boost your basal metabolic rate (BMR).",
+        "4. Mindful eating: Eat slowly and avoid distractions (like TV/phones) during meals to recognize satiety signals.",
+        "5. Increase daily movement: Focus on 'NEAT'—increase steps, use stairs, and stand more during the day.",
+        "6. Gradual progress: Aim for sustainable, slow weight loss (0.5–1 kg per week) rather than extreme dieting."
+    ],
+    "Heart Disease": [
+        "1. Healthy fats: Replace saturated/trans-fats with heart-healthy sources like olive oil, nuts, and avocados.",
+        "2. Boost fiber: Eat more whole grains and legumes to help lower LDL (bad) cholesterol.",
+        "3. Quit smoking: Smoking is the #1 risk factor; seek support to stop immediately.",
+        "4. Monitor markers: Keep a regular check on your cholesterol panels and triglyceride levels.",
+        "5. Active recovery: Prioritize low-intensity steady-state cardio like swimming or cycling.",
+        "6. Medical adherence: Never skip prescribed medications (like blood thinners or statins) without physician consultation."
+    ],
+    "Depression & Anxiety": [
+        "1. Mindfulness practice: Spend 5–10 minutes daily on breathing exercises to lower cortisol.",
+        "2. Gratitude journaling: Write down 3 positive things daily to shift your neurological focus.",
+        "3. Sunlight exposure: Get at least 15 minutes of natural sunlight daily to boost serotonin.",
+        "4. Sleep hygiene: Maintain a strict wake-up and bedtime to regulate your circadian rhythm.",
+        "5. Social connection: Reach out to one person per day; social interaction is a proven mood stabilizer.",
+        "6. Limit screen time: Reduce exposure to blue light and stressful social media content before bed."
+    ],
+    "Chronic Fatigue Syndrome": [
+        "1. Structured Pacing: Budget your energy by dividing tasks into smaller, manageable chunks.",
+        "2. Prioritize rest: Do not wait until you are exhausted to rest; take micro-breaks throughout the day.",
+        "3. Avoid 'Push-Crash' cycles: Do not try to do double the work on a 'good' day—keep exertion levels steady.",
+        "4. Gentle movement: If recommended by a doctor, do very light stretching—never push to the point of exhaustion.",
+        "5. Nutrition: Focus on easy-to-digest, nutrient-dense small meals to maintain blood sugar.",
+        "6. Prioritize tasks: Use the 80/20 rule—focus only on the most important 20% of your daily tasks."
+    ]
+}
+      # 2. Add icons to the dropdown options
+    options = [f"{condition_icons.get(c, '🔹')} {c}" for c in guides.keys()]
+    
+    # 3. Interactive Selectbox
+    selected_option = st.selectbox("Select a condition to view your personalized guide:", options)
+    
+    # 4. Extract the clean key
+    condition = selected_option.split(" ", 1)[1]
+    
+    # 5. Display the guide in a card
+    st.markdown("---")
+    st.markdown(f"### {condition_icons.get(condition, '🔹')} Management Plan for {condition}")
+    
+    with st.container():
+        st.markdown("<div class='content-card'>", unsafe_allow_html=True)
+        
+        # Loop through the list of points
+        for point in guides[condition]:
+            # Each point is formatted with a consistent look
+            st.markdown(f"✅ {point}")
+            
+        st.markdown("</div>", unsafe_allow_html=True)
+        
+    st.info("💡 **Pro-tip:** Consistency is more important than intensity. Start with just two of these habits today!")
+    
 
 elif menu == "🩺 Symptom Checker":
     st.markdown("### 🩺 AI Triage & Assessment")
