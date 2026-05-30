@@ -826,6 +826,6 @@ st.write("---")
 st.markdown("""
     <div style='text-align: center; color: #64748b; padding: 20px;'>
         <p>🚨 <b>Emergency Services:</b> Dial 102 (Ambulance) or 108 immediately.</p>
-        <p>© 2026 Dilshad AI Clinic | Modern Healthcare for the Founder Path</p>
+        <p>© 2026 Clinical  Tool | Modern Healthcare for you</p>
     </div>
 """, unsafe_allow_html=True)
