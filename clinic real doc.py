@@ -809,7 +809,7 @@ elif menu == "About the developer":
     st.write("""
         Hi, I'm Md Dilshad Amir! The developer of Dilshad AI Clinic. I built this platform to 
         bridge the gap between patients and verified healthcare providers 
-        using python and streamlit. 
+        using python and streamlit.It also  contains bmi calculator as well as symptom tracker.
     """)
     st.markdown("</div>", unsafe_allow_html=True)
     
