@@ -781,7 +781,7 @@ elif menu == "🥗 Health Guidance":
     
 
 elif menu == "🩺 Symptom Checker":
-    st.markdown("### 🩺 AI Triage & Assessment")
+    st.markdown("### 🩺 Ai Triage & Assessment")
     symptom = st.selectbox("Select your symptom:", list(SYMPTOM_DIAGNOSTICS.keys()))
     
     if st.button("Get Clinical Advice"):
@@ -807,9 +807,9 @@ elif menu == "About the developer":
     st.markdown("<div class='content-card'>", unsafe_allow_html=True)
     st.header("About the Developer")
     st.write("""
-        Hi, I'm Md Dilshad Amir! The developer of Dilshad AI Clinic. I built this platform to 
+        Hi, I'm Md Dilshad Amir! The developer of Clinic App. I built this platform to 
         bridge the gap between patients and verified healthcare providers 
-        using python and streamlit.It also  contains bmi calculator as well as symptom tracker.
+        using python and streamlit.It also  contains bmi calculator as well as symptom tracker and Symptom Checker.
     """)
     st.markdown("</div>", unsafe_allow_html=True)
     
