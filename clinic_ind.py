@@ -61,7 +61,10 @@ doctors_db = {
     "Dr. Harry":{"specialty":"General Physician","location": "Mumbai", "experience": "11 yr", "fee": "₹600"},
     "Dr. Saleem": {"specialty": "Pediatrician", "location": "Mumbai", "experience": "7 yrs", "fee": "₹500"},
     "Dr. Rajwant":{"specialty":"General Physician","location": "Delhi", "experience": "11 yr", "fee": "₹600"},
-    
+    "Dr. Prem chandra":{"specialty":"Dermatologist","location": "Mumbai", "experience": "12 yrs", "fee": "₹400"},
+    "Dr. Irfan Alam":{"specialty":"General Physician","location": "Mumbai", "experience": "11 yr", "fee": "₹600"},
+    "Dr. Sakeel ahamed": {"specialty": "Pediatrician", "location": "Mumbai", "experience": "7 yrs", "fee": "₹500"},
+    "Dr. Rustam alam":{"specialty":"General Physician","location": "Delhi", "experience": "11 yr", "fee": "₹600"},
 }
 
 # Pharmacy Database
