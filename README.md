@@ -3,7 +3,7 @@
 # 🏥 THE CLINIC APP
 ### Intelligent Health Assistant & Medical Navigation Suite
 
-[**Launch Live App**](https://theclinicappv1--mddilshadamir.streamlit.app/) • [**View Source Code**](https://github.com/mddilshadamirAI/The_Clinic_appV1) • [**Report an Issue**](https://github.com/mddilshadamirAI/The_Clinic_appV1/issues)
+[**Launch Live App**](https://theclinicappv1--mddilshadamir.streamlit.app/) • [**View Source Code**](https://github.com/mddilshadamirAI/The_Clinic_appV1)
 
 ---
 
