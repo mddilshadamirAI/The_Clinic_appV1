@@ -30,47 +30,4 @@
 | **Data Handling** | Modular Logic Processing |
 | **Deployment** | Streamlit Cloud |
 
----
-
-### 🚀 LOCAL DEPLOYMENT GUIDE
-
-To run **The Clinic App** locally, ensure you have [Python](https://www.python.org/) installed and follow these steps:
-
-1.  **Clone the Repository:**
-```bash
-    git clone [https://github.com/mddilshadamirAI/The_Clinic_appV1.git](https://github.com/mddilshadamirAI/The_Clinic_appV1.git)
-    cd The_Clinic_appV1
-    ```
-
-2.  **Install Dependencies:**
-```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Launch the Application:**
-```bash
-    streamlit run app.py
-    ```
-
----
-
-### 📈 ROADMAP & EVOLUTION
-*   **AI Integration:** Implementing conversational agents for personalized health summaries.
-*   **Telemedicine Links:** Direct integration for virtual consultations.
-*   **Secure Patient Portals:** Encrypted storage for basic health records.
-
----
-
-> *“Healthcare accessibility should be seamless, intuitive, and intelligent. The Clinic App is the first step toward a more connected medical experience.”*
-
----
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python" alt="Python">
-  <img src="https://img.shields.io/badge/Framework-Streamlit-red?style=for-the-badge" alt="Streamlit">
-  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status">
-</p>
-
-© 2026 MD DILSHAD AMIR | *Engineered for Wellness.*
-
 </div>
