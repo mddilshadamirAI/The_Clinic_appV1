@@ -1,7 +1,8 @@
 <div align="center">
 
 # 🏥 THE CLINIC APP
-### Intelligent Health Assistant & Medical Navigation Suite
+
+### Intelligent Health Assistant & Medical Assistance for Different Diseases
 
 [**Launch Live App**](https://theclinicappv1--mddilshadamir.streamlit.app/) • [**View Source Code**](https://github.com/mddilshadamirAI/The_Clinic_appV1) • [**Report an Issue**](https://github.com/mddilshadamirAI/The_Clinic_appV1/issues)
 
