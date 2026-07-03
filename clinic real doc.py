@@ -826,6 +826,6 @@ st.write("---")
 st.markdown("""
     <div style='text-align: center; color: #64748b; padding: 20px;'>
         <p>🚨 <b>Emergency Services:</b> Dial 102 (Ambulance) or 108 immediately.</p>
-        <p>© 2026 Clinical  Tool | Modern Healthcare for you</p>
+        <p>© 2026 Clinical Tool | Modern Healthcare for you and your family.</p>
     </div>
 """, unsafe_allow_html=True)
