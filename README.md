@@ -8,7 +8,7 @@
 
 ---
 
-### 🌐 PROJECT MISSION
+### 🌐 --PROJECT MISSION--
 **The Clinic App** serves as a bridge between immediate health concerns and professional medical guidance. By synthesizing complex health data into a streamlined, high-performance interface, this platform minimizes administrative friction and provides users with the clarity needed to make informed wellness decisions.
 
 ---
