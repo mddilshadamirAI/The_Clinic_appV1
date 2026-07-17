@@ -3,7 +3,7 @@ import urllib.parse
 
 # --- 1. CONFIGURATION & THEME ---
 st.set_page_config(
-    page_title="Dilshad Clinical Tool",
+    page_title="Clinical Tool",
     page_icon="🏥",
     layout="wide"
 )
